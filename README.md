@@ -1,2 +1,11 @@
-# charlesson-portfolio
-Portfólio atualizado para apresentar os resultados dos meus estudos em desenvolvimento web.
+# 💼 Charlesson Portfolio
+
+Portfólio profissional em desenvolvimento com foco em frontend moderno.
+
+## 🚀 Tecnologias
+- Next.js
+- React
+- Tailwind CSS
+
+## 📌 Status
+Em desenvolvimento
