@@ -11,8 +11,8 @@
 
 export default function Home() {
   return (
-    <main className="flex-1">
-      <h1>Home</h1>
+    <main className="flex flex-col gap-6 p-10">
+      
     </main>
   );
 }
