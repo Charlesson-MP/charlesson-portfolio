@@ -175,6 +175,17 @@
  * Ensures consistent defaults across the application.
  */
 @layer base {
+  html {
+    @apply scroll-smooth;
+    scroll-padding-top: 4rem; /* h-16 (64px) */
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: 5rem; /* lg:h-20 (80px) */
+    }
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
