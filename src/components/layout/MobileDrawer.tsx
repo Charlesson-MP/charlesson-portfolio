@@ -52,6 +52,7 @@ type Props = {
   links: { href: string; label: string }[];
   language: "pt" | "en";
   onToggleLanguage: () => void;
+  activeSection?: string;
 };
 
 export function MobileDrawer({
@@ -60,6 +61,7 @@ export function MobileDrawer({
   links,
   language,
   onToggleLanguage,
+  activeSection,
 }: Props) {
   const drawerRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -180,25 +182,34 @@ export function MobileDrawer({
         </div>
 
         {/* Links */}
-        <nav className="flex-1 overflow-y-auto p-6">
+        <nav className="flex-1 overflow-y-scroll p-6">
           <ul className="flex flex-col gap-1">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={onClose}
-                  className="
-                    block py-3 px-4 rounded-md
-                    text-base font-medium
-                    text-muted-foreground
-                    hover:text-foreground hover:bg-accent
-                    transition-all
-                  "
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {links.map((link) => {
+              const id = link.href.split("#")[1];
+              const isActive = activeSection === id;
+              const isHero = activeSection === "inicio";
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={onClose}
+                    className={`
+                      block py-3 px-4 rounded-md
+                      text-base font-medium
+                      transition-all
+                      ${isActive
+                        ? "text-foreground bg-accent/50"
+                        : isHero
+                          ? "text-muted-foreground"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      }
+                    `}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Mobile Language Toggle */}
