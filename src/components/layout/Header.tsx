@@ -1,3 +1,54 @@
+/**
+ * Header Component
+ *
+ * Main navigation bar of the application, responsible for global navigation,
+ * theme control, language switching, and mobile menu integration.
+ *
+ * Responsibilities:
+ * - Render primary navigation links (desktop and mobile)
+ * - Provide theme toggle (light/dark mode)
+ * - Provide language toggle (pt/en)
+ * - Control mobile navigation drawer (open/close state)
+ * - Enhance UX with scroll-based visual feedback
+ *
+ * Behavior:
+ * - Fixed at the top of the viewport
+ * - Changes appearance on scroll (background, blur, border, shadow)
+ * - Responsive layout:
+ *   - Desktop: inline navigation links
+ *   - Mobile: hamburger menu + drawer (MobileDrawer)
+ *
+ * State Management:
+ * - `isMenuOpen`: controls MobileDrawer visibility
+ * - `isScrolled`: tracks scroll position to apply visual styles
+ * - `language`: manages current language state (pt/en)
+ * - `mounted`: ensures theme is only resolved after client hydration
+ *
+ * Theme Handling:
+ * - Uses `next-themes` to manage light/dark mode
+ * - Prevents hydration mismatch by deferring theme resolution until mount
+ *
+ * Accessibility:
+ * - Buttons include descriptive aria-labels
+ * - Navigation is keyboard accessible
+ * - Mobile menu integrates with an accessible dialog (MobileDrawer)
+ *
+ * Integration:
+ * - Uses `MobileDrawer` for mobile navigation
+ * - Uses `Logo` component for branding
+ * - Uses custom `Button` component for consistent UI
+ *
+ * Dependencies:
+ * - Next.js Link (client-side navigation)
+ * - lucide-react (icons)
+ * - next-themes (theme management)
+ *
+ * Notes:
+ * - Scroll listener is attached on mount and cleaned up on unmount
+ * - Layout constrained using max-width container (max-w-7xl)
+ * - Designed for extensibility (e.g., i18n integration in future)
+ */
+
 "use client";
 
 import { useState, useEffect } from "react";
