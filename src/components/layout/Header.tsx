@@ -2,18 +2,21 @@
  * Header Component
  *
  * Main navigation bar of the application, responsible for global navigation,
- * theme control, language switching, and mobile menu integration.
+ * theme control, language switching, scroll spy behavior, and mobile menu integration.
  *
  * Responsibilities:
  * - Render primary navigation links (desktop and mobile)
  * - Provide theme toggle (light/dark mode)
  * - Provide language toggle (pt/en)
  * - Control mobile navigation drawer (open/close state)
- * - Enhance UX with scroll-based visual feedback
+ * - Enhance UX with scroll-based visual feedback and active section tracking
+ * - Track visible sections and update navigation state (scroll spy)
  *
  * Behavior:
  * - Fixed at the top of the viewport
  * - Changes appearance on scroll (background, blur, border, shadow)
+ * - Updates URL hash dynamically based on visible section
+ * - Highlights active navigation item based on viewport position
  * - Responsive layout:
  *   - Desktop: inline navigation links
  *   - Mobile: hamburger menu + drawer (MobileDrawer)
@@ -23,6 +26,7 @@
  * - `isScrolled`: tracks scroll position to apply visual styles
  * - `language`: manages current language state (pt/en)
  * - `mounted`: ensures theme is only resolved after client hydration
+ * - `activeSection`: tracks the section currently in view (scroll spy)
  *
  * Theme Handling:
  * - Uses `next-themes` to manage light/dark mode
@@ -44,8 +48,11 @@
  * - next-themes (theme management)
  *
  * Notes:
+ * - Uses IntersectionObserver for efficient scroll detection
  * - Scroll listener is attached on mount and cleaned up on unmount
  * - Layout constrained using max-width container (max-w-7xl)
+ * - Logo acts as a shortcut to the top (hero section)
+ * - Navigation highlight is disabled when hero section is active
  * - Designed for extensibility (e.g., i18n integration in future)
  */
 
@@ -61,11 +68,11 @@ import { Logo } from "@/components/ui/Logo";
 import { MobileDrawer } from "@/components/layout/MobileDrawer";
 
 const navLinks = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#habilidades", label: "Habilidades" },
-  { href: "#projetos", label: "Projetos" },
-  { href: "#experiencia", label: "Experiência" },
-  { href: "#contato", label: "Contato" },
+  { href: "/#sobre", label: "Sobre" },
+  { href: "/#habilidades", label: "Habilidades" },
+  { href: "/#projetos", label: "Projetos" },
+  { href: "/#experiencia", label: "Experiência" },
+  { href: "/#contato", label: "Contato" },
 ];
 
 type Language = "pt" | "en";
@@ -75,6 +82,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [language, setLanguage] = useState<Language>("pt");
   const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
   const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
@@ -91,6 +99,40 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            setActiveSection(id);
+            window.history.replaceState(null, "", `/#${id}`);
+          }
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" }
+    );
+
+    const hero = document.getElementById("inicio");
+    if (hero) observer.observe(hero);
+
+    navLinks.forEach((link) => {
+      const id = link.href.split("#")[1];
+      if (id) {
+        const element = document.getElementById(id);
+        if (element) {
+          observer.observe(element);
+        }
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "pt" ? "en" : "pt"));
   };
@@ -100,17 +142,17 @@ export function Header() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full  ${
-        isScrolled
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full  ${isScrolled
           ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent"
-      }`}
-    >
+          }`}
+      >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between h-16 lg:h-20 gap-4">
           <Link
-            href="/"
+            href="/#inicio"
             className=" flex items-center text-lg font-semibold text-foreground hover:text-primary transition-colors shrink-0"
           >
             <Logo className="w-14 h-14 transition-transform duration-300 hover:scale-105" />
@@ -118,17 +160,23 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+          <ul className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.split("#")[1];
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`text-sm font-medium transition-colors ${isActive
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                      }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Controls */}
@@ -168,7 +216,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsMenuOpen(true)}
               aria-label="Abrir menu"
             >
@@ -178,6 +226,8 @@ export function Header() {
         </nav>
       </div>
 
+      </header>
+
       {/* Mobile Navigation Drawer */}
       <MobileDrawer
         isOpen={isMenuOpen}
@@ -185,7 +235,8 @@ export function Header() {
         links={navLinks}
         language={language}
         onToggleLanguage={toggleLanguage}
+        activeSection={activeSection}
       />
-    </header>
+    </>
   );
 }
