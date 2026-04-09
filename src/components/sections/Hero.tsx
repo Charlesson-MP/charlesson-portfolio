@@ -1,3 +1,16 @@
+/**
+ * Hero Section
+ *
+ * Main landing section of the portfolio.
+ * Displays personal introduction, call-to-actions,
+ * social links, and profile image.
+ *
+ * Responsibilities:
+ * - Present developer identity
+ * - Highlight main skills and focus
+ * - Provide navigation to key sections
+ */
+
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Mail } from "lucide-react"
@@ -17,10 +30,10 @@ export function Hero() {
               Charlesson Mendes Pereira
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
-              Frontend Developer focado em construir aplicações web responsivas e de alta performance 
+              Frontend Developer focado em construir aplicações web responsivas e de alta performance
               usando Next.js, React e Tailwind CSS. Forte atenção à performance, SEO e experiência do usuário.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button asChild size="lg" className="group">
                 <Link href="#projetos">
