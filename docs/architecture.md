@@ -84,3 +84,9 @@ Dark mode is controlled via the `.dark` class at the root level.
 
 All theme changes are automatically propagated through CSS variables,
 ensuring consistency across the entire application.
+
+## Documentation Strategy
+
+- Global architecture documented in this file
+- Key features documented in `/docs`
+- All components must include a header comment explaining purpose and responsibilities
