@@ -19,14 +19,14 @@ import { FaGithub, FaLinkedin } from "react-icons/fa"
 
 export function Hero() {
   return (
-    <section id="inicio" className="min-h-screen flex items-center pt-16">
+    <section id="inicio" className="min-h-screen flex items-center pt-10">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8">
           <div className="max-w-2xl flex-1 flex flex-col items-center text-center lg:items-start lg:text-left">
             <p className="text-primary font-medium mb-4 text-sm tracking-wide uppercase">
               Frontend Developer
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight text-balance">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight text-balance">
               Charlesson Mendes Pereira
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
