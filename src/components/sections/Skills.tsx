@@ -18,7 +18,7 @@ function SkillCard({ skill }: { skill: Skill }) {
       <TooltipTrigger asChild>
         <Card className="group flex items-center gap-3 px-4 py-3 bg-card border border-border hover:border-primary/30 hover:shadow-md hover:scale-[1.02] transition-all duration-200 cursor-default">
           <span className="text-muted-foreground group-hover:text-primary transition-colors duration-200">
-            <skill.icon className="h-5 w-5"/>
+            <skill.icon className="h-6 w-6"/>
           </span>
           <span className="text-sm font-medium text-foreground">
             {skill.name}
@@ -39,34 +39,34 @@ function SkillCard({ skill }: { skill: Skill }) {
 export function Skills() {
   return (
     <TooltipProvider delayDuration={100}>
-      <section id="habilidades" className="py-10 bg-muted/30">
+      <section id="habilidades" className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-5xl">
+          <div className="max-w-5xl mb-12">
             <h2 className="text-sm font-medium text-primary uppercase tracking-wide mb-4">
               Habilidades
             </h2>
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
               Tecnologias e ferramentas que utilizo
             </h3>
-            <p className="text-muted-foreground mb-12 max-w-2xl">
+            <p className="text-muted-foreground max-w-2xl">
               Passe o mouse sobre cada habilidade para ver como a utilizo no dia a dia.
             </p>
+          </div>
 
-            <div className="space-y-12">
-              {skillCategories.map((category) => (
-                <div key={category.title}>
-                  <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-                    <span className="w-8 h-px bg-primary/50" />
-                    {category.title}
-                  </h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-                    {category.skills.map((skill) => (
-                      <SkillCard key={skill.name} skill={skill} />
-                    ))}
-                  </div>
+          <div className="space-y-12">
+            {skillCategories.map((category) => (
+              <div key={category.title}>
+                <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-8 h-px bg-primary/50" />
+                  {category.title}
+                </h4>
+                <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
+                  {category.skills.map((skill) => (
+                    <SkillCard key={skill.name} skill={skill} />
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

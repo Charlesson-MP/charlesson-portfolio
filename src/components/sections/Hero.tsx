@@ -19,7 +19,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa"
 
 export function Hero() {
   return (
-    <section id="inicio" className="min-h-screen flex items-center pt-10">
+    <section id="inicio" className="min-h-screen flex items-center pt-24 pb-16 md:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8">
           <div className="max-w-2xl flex-1 flex flex-col items-center text-center lg:items-start lg:text-left">
