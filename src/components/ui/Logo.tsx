@@ -1,3 +1,23 @@
+/**
+ * Logo Component
+ *
+ * Renders the brand's identity as a scalable vector graphic (SVG).
+ * The logo is designed to be flexible, supporting color customization via CSS variables.
+ *
+ * Responsibilities:
+ * - Render the primary visual representation of the developer's brand.
+ * - Support responsive resizing via `className`.
+ * - Integrate with the application's theme system using semantic CSS variables.
+ *
+ * Theme Variables:
+ * - `--logo-base`: Defines the primary color of the logo structure (defaults to `currentColor`).
+ * - `--logo-accent`: Defines the highlight/accent color (defaults to a blue tone).
+ *
+ * Technical Notes:
+ * - Implemented as a pure functional component for performance.
+ * - Uses SVG primitives for maximum sharpness across all display densities.
+ */
+
 type LogoProps = {
   className?: string;
 };

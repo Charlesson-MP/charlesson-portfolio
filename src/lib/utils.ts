@@ -1,3 +1,17 @@
+/**
+ * Utility Functions
+ *
+ * A collection of shared helper functions used throughout the application
+ * to simplify common tasks and promote code reuse.
+ *
+ * Current Utilities:
+ * - `cn`: Merges Tailwind CSS classes with support for conditional logic and priority resolution.
+ *
+ * Technical Notes:
+ * - Leverages `clsx` for conditional class handling.
+ * - Leverages `tailwind-merge` to fix class conflicts (e.g., padding overrides).
+ */
+
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
