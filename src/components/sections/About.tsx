@@ -30,7 +30,7 @@
 
 export function About() {
   return (
-    <section id="sobre" className="pt-16">
+    <section id="sobre" className="py-10">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl">
           <h2 className="text-sm font-medium text-primary uppercase tracking-wide mb-4">
