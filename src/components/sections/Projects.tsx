@@ -6,8 +6,12 @@
  * Data is sourced from a centralized structure, enabling scalability
  * and easy maintenance. Each project is rendered as an independent
  * article with semantic structure and reusable UI components.
+ *
+ * Clicking the card image or title navigates to /projects/[slug]
+ * for the full case study view.
  */
 
+import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { Badge } from "../ui/Badge";
@@ -32,10 +36,10 @@ export function Projects() {
           <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fill,minmax(320px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(380px,1fr))] gap-6">
             {projects.map((project) => (
               <Card 
-                key={project.title}
-                className="group flex flex-col overflow-hidden p-0 gap-0 border-border/50 hover:border-border hover:shadow-md transition-all duration-300"
+                key={project.slug}
+                className="group relative flex flex-col overflow-hidden p-0 gap-0 border-border/50 hover:border-border hover:shadow-md transition-all duration-300"
               >
-                <div className="relative w-full aspect-video overflow-hidden border-b border-border/10">
+                <div className="relative w-full aspect-video overflow-hidden border-b border-border/10 block">
                   <Image 
                     src={project.image} 
                     alt={`Preview do projeto ${project.title}`} 
@@ -46,7 +50,9 @@ export function Projects() {
                 </div>
                 <CardHeader className="p-6 pb-4">
                   <CardTitle className="text-xl font-semibold text-foreground">
-                    {project.title}
+                    <Link href={`/projects/${project.slug}`} className="hover:text-primary transition-colors after:absolute after:inset-0 after:z-0">
+                      {project.title}
+                    </Link>
                   </CardTitle>
                   <CardDescription className="text-muted-foreground leading-relaxed line-clamp-2">
                     {project.description}
@@ -65,7 +71,7 @@ export function Projects() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="px-6 pb-6 pt-0 gap-3 mt-auto">
+                <CardFooter className="px-6 pb-6 pt-0 gap-3 mt-auto relative z-10">
                   <Button asChild variant="default" size="sm" className="gap-2">
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4" />
