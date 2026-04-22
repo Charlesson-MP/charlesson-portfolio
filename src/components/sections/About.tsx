@@ -27,33 +27,39 @@
  * - Designed to support scroll-based navigation (scroll spy)
  * - Content can be easily adapted for i18n in future iterations
  */
+"use client"
+
+import { useTranslation } from "@/hooks/use-translation"
 
 export function About() {
+
+  const t = useTranslation()
+
   return (
     <section id="sobre" className="py-16 md:py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl">
           <h2 className="text-sm font-medium text-primary uppercase tracking-wide mb-4">
-            Sobre Mim
+            {t.about.title}
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
-            Do suporte técnico ao desenvolvimento frontend
+            {t.about.subtitle}
           </h3>
           <div className="space-y-6 text-muted-foreground leading-relaxed">
             <p>
-              Minha jornada na tecnologia começou no suporte de TI e design gráfico, onde desenvolvi uma base sólida em resolução de problemas e atenção aos detalhes. Durante minha formação em Ciência da Computação na UESB, aprofundei essas habilidades através de projetos e resolução de problemas aplicados ao desenvolvimento. Essa experiência me ajudou a entender como as pessoas realmente utilizam a tecnologia no dia a dia.
+              {t.about.resume1}
             </p>
 
             <p>
-              A transição para o desenvolvimento frontend surgiu naturalmente, unindo meu interesse por interfaces visuais com programação. Hoje, foco na criação de aplicações modernas, responsivas e com boa experiência do usuário.
+              {t.about.resume2}
             </p>
 
             <p>
-              Já atuei em projetos reais, colaborando com equipes e aplicando boas práticas de desenvolvimento. Busco sempre escrever código limpo, escalável e bem estruturado, acompanhando os padrões do mercado.
+              {t.about.resume3}
             </p>
 
             <p>
-              Meu objetivo é evoluir constantemente como desenvolvedor e contribuir com soluções que gerem impacto real para usuários e negócios.
+              {t.about.resume4}
             </p>
           </div>
         </div>
