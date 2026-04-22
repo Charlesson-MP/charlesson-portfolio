@@ -28,10 +28,11 @@
  * - Uses a helper (`getFocusableElements`) to centralize focusable element queries
  * - Consolidates keyboard handling into a single event listener
  * - Uses `requestAnimationFrame` to ensure DOM readiness before applying focus
+ * - Language state and translations are accessed via hooks (`useLanguage`, `useTranslation`)
  *
  * Integration:
  * - Typically used inside the Header component
- * - Receives navigation links, language state, and handlers via props
+ * - Receives navigation links, open state, and close handler via props
  *
  * Dependencies:
  * - Next.js Link (client-side navigation)
@@ -45,29 +46,27 @@ import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { pt } from "@/locales/pt";
+import { useLanguage } from "@/hooks/use-language";
+import { useTranslation } from "@/hooks/use-translation";
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
   links: { href: string; label: string }[];
-  language: "pt" | "en";
-  onToggleLanguage: () => void;
   activeSection?: string;
-  t: typeof pt.header;
 };
 
 export function MobileDrawer({
   isOpen,
   onClose,
   links,
-  language,
-  onToggleLanguage,
   activeSection,
-  t,
 }: Props) {
   const drawerRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  const { language, toggleLanguage } = useLanguage();
+  const t = useTranslation();
 
   // 1. Helper to extract focusable elements cleanly and properly typed
   const getFocusableElements = useCallback(() => {
@@ -171,14 +170,14 @@ export function MobileDrawer({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border">
           <h2 id="drawer-title" className="text-lg font-semibold text-foreground">
-            {t.menu}
+            {t.header.menu}
           </h2>
           <Button
             variant="ghost"
             size="icon"
             onClick={onClose}
             className="text-muted-foreground hover:text-foreground"
-            aria-label={t.closeMenu}
+            aria-label={t.header.closeMenu}
           >
             <X className="h-5 w-5" />
           </Button>
@@ -220,13 +219,13 @@ export function MobileDrawer({
             <Button
               variant="ghost"
               size="sm"
-              onClick={onToggleLanguage}
+              onClick={toggleLanguage}
               className="w-full flex items-center justify-start gap-3 px-4 text-muted-foreground hover:text-foreground"
-              aria-label={t.toggleLanguage}
+              aria-label={t.header.toggleLanguage}
             >
               <Globe className="h-5 w-5" />
               <span className="text-sm font-medium uppercase">
-                {t.languageLabel}: {language}
+                {t.header.languageLabel}: {language}
               </span>
             </Button>
           </div>

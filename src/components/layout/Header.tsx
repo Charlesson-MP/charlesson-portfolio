@@ -24,9 +24,9 @@
  * State Management:
  * - `isMenuOpen`: controls MobileDrawer visibility
  * - `isScrolled`: tracks scroll position to apply visual styles
- * - `language`: manages current language state (pt/en)
  * - `mounted`: ensures theme is only resolved after client hydration
  * - `activeSection`: tracks the section currently in view (scroll spy)
+ * - Language state is managed globally via `useLanguage()` hook
  *
  * Theme Handling:
  * - Uses `next-themes` to manage light/dark mode
@@ -41,6 +41,7 @@
  * - Uses `MobileDrawer` for mobile navigation
  * - Uses `Logo` component for branding
  * - Uses custom `Button` component for consistent UI
+ * - Uses `useLanguage()` and `useTranslation()` hooks for i18n
  *
  * Dependencies:
  * - Next.js Link (client-side navigation)
@@ -53,7 +54,6 @@
  * - Layout constrained using max-width container (max-w-7xl)
  * - Logo acts as a shortcut to the top (hero section)
  * - Navigation highlight is disabled when hero section is active
- * - Designed for extensibility (e.g., i18n integration in future)
  */
 
 "use client";
@@ -65,23 +65,19 @@ import { Menu, Moon, Sun, Globe } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
-import { pt } from "@/locales/pt";
-import { en } from "@/locales/en";
+import { useLanguage } from "@/hooks/use-language";
+import { useTranslation } from "@/hooks/use-translation";
 import { MobileDrawer } from "@/components/layout/MobileDrawer";
-
-
-
-type Language = "pt" | "en";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [language, setLanguage] = useState<Language>("pt");
   const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const { resolvedTheme, setTheme } = useTheme();
 
-  const t = language === "pt" ? pt : en;
+  const { language, toggleLanguage } = useLanguage();
+  const t = useTranslation();
 
   const navLinks = useMemo(() => [
     { href: "/#sobre", label: t.header.about },
@@ -138,10 +134,6 @@ export function Header() {
       observer.disconnect();
     };
   }, [isMenuOpen, navLinks]);
-
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "pt" ? "en" : "pt"));
-  };
 
   const toggleTheme = () => {
     setTheme(currentTheme === "dark" ? "light" : "dark");
@@ -239,10 +231,7 @@ export function Header() {
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
         links={navLinks}
-        language={language}
-        onToggleLanguage={toggleLanguage}
         activeSection={activeSection}
-        t={t.header}
       />
     </>
   );
