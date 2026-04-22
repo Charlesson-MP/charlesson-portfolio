@@ -11,39 +11,42 @@
  * - Provide navigation to key sections
  */
 
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Mail } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
+import { useTranslation } from "@/hooks/use-translation"
 
 export function Hero() {
+  const t = useTranslation()
   return (
     <section id="inicio" className="min-h-screen flex items-center pt-24 pb-16 md:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8">
           <div className="max-w-2xl flex-1 flex flex-col items-center text-center lg:items-start lg:text-left">
             <p className="text-primary font-medium mb-4 text-sm tracking-wide uppercase">
-              Frontend Developer
+              {t.hero.activityArea}
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight text-balance">
               Charlesson Mendes Pereira
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
-              Frontend Developer focado em construir aplicações web responsivas e de alta performance
-              usando Next.js, React e Tailwind CSS. Forte atenção à performance, SEO e experiência do usuário.
+              {t.hero.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button asChild size="lg" className="group">
                 <Link href="#projetos">
-                  Ver Projetos
+                  {t.hero.viewProjects}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="#contato">
-                  Fale Comigo
+                  {t.hero.contact}
                 </Link>
               </Button>
             </div>
