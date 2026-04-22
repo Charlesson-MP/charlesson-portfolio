@@ -1,3 +1,29 @@
+/**
+ * Skills Section
+ *
+ * Displays categorized technical skills using reusable Card components.
+ * Each category contains a list of skills with icons and descriptions.
+ *
+ * Responsibilities:
+ * - Render skill categories and their respective items
+ * - Display icons, names, and descriptions for each skill
+ * - Integrate with the global i18n system for multilingual support
+ *
+ * Data Handling:
+ * - Skill data is sourced from /data/skills.ts
+ * - Translatable fields (e.g., category titles and descriptions)
+ *   are structured per language (pt/en)
+ * - The current language is obtained via useLanguage()
+ *
+ * i18n Integration:
+ * - Uses useTranslation() for section-level UI text (titles, subtitles)
+ * - Uses useLanguage() to select localized content from the dataset
+ *
+ * Notes:
+ * - Marked as "use client" because it depends on React hooks and context
+ * - Designed to be easily extendable with new categories or skills
+ */
+
 "use client"
 
 import {
