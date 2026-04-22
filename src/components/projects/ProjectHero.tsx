@@ -30,7 +30,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
   return (
     <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative">
         {/* Back Navigation */}
