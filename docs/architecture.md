@@ -4,30 +4,51 @@
 ```
 src/
 │
-├── app/                # Routing (Next.js App Router)
+├── app/                    # Routing (Next.js App Router)
 │   ├── layout.tsx
 │   ├── page.tsx
-│   └── globals.css
+│   ├── globals.css
+│   └── projects/
+│       └── [slug]/         # Dynamic route for project case studies
+│           ├── page.tsx
+│           └── not-found.tsx
 │
-├── components/         # Reusable components
-│   ├── ui/
-│   ├── layout/
+├── components/             # Reusable components
+│   ├── ui/                 # Base design system (Button, Card, Badge...)
+│   ├── layout/             # Structural (Header, Footer)
 │   │   └── Header.tsx
-│   └── sections/
+│   ├── sections/           # Home page sections (Hero, About, Skills, Projects)
+│   └── projects/           # Project detail page components
+│       ├── ProjectHero.tsx
+│       ├── ProjectGallery.tsx
+│       ├── ProjectLinks.tsx
+│       ├── TechStack.tsx
+│       ├── SectionBlock.tsx
+│       ├── FeatureList.tsx
+│       ├── CopyCommandBlock.tsx
+│       └── ProjectStructureBlock.tsx
 │
-├── hooks/              # Custom hooks
+├── data/                   # Static data sources
+│   ├── projects.ts         # Summary data (listing cards)
+│   ├── project-details.ts  # Full case study data (detail pages)
+│   └── skills.ts
 │
-├── lib/                # Helpers, utils, configs
+├── hooks/                  # Custom hooks
 │
-└── types/              # Global types (TypeScript)
+├── lib/                    # Helpers, utils, configs
+│
+└── types/                  # Global types (TypeScript)
+    ├── projects.ts         # Project, ProjectDetails, TechItem, Feature, Command
+    └── skills.ts
 ```
 
 ### Separation of Concerns
 
 The project follows a clear separation of responsibilities:
 
-- `app/` → Routing and layout structure
+- `app/` → Routing, layout structure, and page composition
 - `components/` → UI and reusable components
+- `data/` → Static data (summary + detail), separate from presentation
 - `hooks/` → Reusable logic
 - `lib/` → Utility functions and helpers
 - `types/` → TypeScript type definitions
