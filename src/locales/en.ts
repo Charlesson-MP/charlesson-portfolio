@@ -29,4 +29,9 @@ export const en = {
     resume3: "I have already worked on real projects, collaborating with teams and applying good development practices. I always strive to write clean, scalable, and well-structured code, following market standards.",
     resume4: "My goal is to constantly evolve as a developer and contribute with solutions that generate real impact for users and businesses.",
   },
+  skills: {
+    title: "Skills",
+    subtitle: "Technologies and tools I use",
+    hint: "Hover over each skill to see how I use it in my daily work.",
+  }
 }

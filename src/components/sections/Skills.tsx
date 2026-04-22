@@ -9,10 +9,12 @@ import {
 import { Card } from "@/components/ui/Card"
 import { Skill } from "@/types/skills"
 import { skillCategories } from "@/data/skills"
+import { useLanguage } from "@/hooks/use-language"
+import { useTranslation } from "@/hooks/use-translation"
+import type { Language } from "@/locales"
 
 
-
-function SkillCard({ skill }: { skill: Skill }) {
+function SkillCard({ skill, language }: { skill: Skill; language: Language }) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -21,7 +23,7 @@ function SkillCard({ skill }: { skill: Skill }) {
             <skill.icon className="h-6 w-6"/>
           </span>
           <span className="text-sm font-medium text-foreground">
-            {skill.name}
+            {skill.name[language]}
           </span>
         </Card>
       </TooltipTrigger>
@@ -30,39 +32,42 @@ function SkillCard({ skill }: { skill: Skill }) {
         sideOffset={8}
         className="max-w-[220px] px-3 py-2 text-sm leading-relaxed text-center bg-card text-card-foreground border border-border shadow-lg rounded-lg animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 duration-150"
       >
-        <p>{skill.description}</p>
+        <p>{skill.description[language]}</p>
       </TooltipContent>
     </Tooltip>
   )
 }
 
 export function Skills() {
+  const { language } = useLanguage()
+  const t = useTranslation()
+
   return (
     <TooltipProvider delayDuration={100}>
       <section id="habilidades" className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mb-12">
             <h2 className="text-sm font-medium text-primary uppercase tracking-wide mb-4">
-              Habilidades
+              {t.skills.title}
             </h2>
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-              Tecnologias e ferramentas que utilizo
+              {t.skills.subtitle}
             </h3>
             <p className="text-muted-foreground max-w-2xl">
-              Passe o mouse sobre cada habilidade para ver como a utilizo no dia a dia.
+              {t.skills.hint}
             </p>
           </div>
 
           <div className="space-y-12">
             {skillCategories.map((category) => (
-              <div key={category.title}>
+              <div key={category.title.en}>
                 <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
                   <span className="w-8 h-px bg-primary/50" />
-                  {category.title}
+                  {category.title[language]}
                 </h4>
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
                   {category.skills.map((skill) => (
-                    <SkillCard key={skill.name} skill={skill} />
+                    <SkillCard key={skill.name.en} skill={skill} language={language} />
                   ))}
                 </div>
               </div>

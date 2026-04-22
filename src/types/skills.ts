@@ -20,12 +20,21 @@
 import { IconType } from "react-icons"
 
 export type Skill = {
-  name: string
-  description: string
+  name: {
+    pt: string
+    en: string
+  },
+  description: {
+    pt: string
+    en: string
+  },
   icon: IconType
 }
 
 export type SkillCategory = {
-  title: string
+  title: {
+    pt: string
+    en: string
+  }
   skills: Skill[]
 }

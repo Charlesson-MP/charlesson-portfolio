@@ -29,4 +29,9 @@ export const pt = {
     resume3: "Já atuei em projetos reais, colaborando com equipes e aplicando boas práticas de desenvolvimento. Busco sempre escrever código limpo, escalável e bem estruturado, acompanhando os padrões do mercado.",
     resume4: "Meu objetivo é evoluir constantemente como desenvolvedor e contribuir com soluções que gerem impacto real para usuários e negócios.",
   },
+  skills: {
+    title: "Habilidades",
+    subtitle: "Tecnologias e ferramentas que utilizo",
+    hint: "Passe o mouse sobre cada habilidade para ver como a utilizo no dia a dia."
+  }
 }

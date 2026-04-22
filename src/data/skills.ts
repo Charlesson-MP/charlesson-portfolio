@@ -28,101 +28,212 @@ import { VscVscode } from "react-icons/vsc";
 
 const skillCategories: SkillCategory[] = [
   {
-    title: "Frontend",
+    title: {
+      pt: "Frontend",
+      en: "Frontend",
+    },
     skills: [
       {
-        name: "React",
-        description: "Hooks, Context API, desenvolvimento de SPAs e integração com APIs",
+        name: {
+          pt: "React",
+          en: "React",
+        },
+        description: {
+          pt: "Hooks, Context API, desenvolvimento de SPAs e integração com APIs",
+          en: "Hooks, Context API, development of SPAs and API integration",
+        },
         icon: FaReact,
       },
       {
-        name: "Next.js",
-        description: "SSR, otimização de SEO, performance e roteamento avançado",
+        name: {
+          pt: "Next.js",
+          en: "Next.js",
+        },
+        description: {
+          pt: "SSR, otimização de SEO, performance e roteamento avançado",
+          en: "SSR, SEO optimization, performance and advanced routing",
+        },
         icon: RiNextjsFill,
       },
       {
-        name: "Vue.js",
-        description: "Composition API, componentes reativos e gerenciamento de estado",
+        name: {
+          pt: "Vue.js",
+          en: "Vue.js",
+        },
+        description: {
+          pt: "Composition API, componentes reativos e gerenciamento de estado",
+          en: "Composition API, reactive components and state management",
+        },
         icon: FaVuejs,
       },
       {
-        name: "TypeScript",
-        description: "Tipagem estática, interfaces e código mais seguro e manutenível",
+        name: {
+          pt: "TypeScript",
+          en: "TypeScript",
+        },
+        description: {
+          pt: "Tipagem estática, interfaces e código mais seguro e manutenível",
+          en: "Static typing, interfaces and more secure and maintainable code",
+        },
         icon: SiTypescript,
       },
       {
-        name: "JavaScript",
-        description: "ES6+, programação assíncrona e manipulação do DOM",
+        name: {
+          pt: "JavaScript",
+          en: "JavaScript",
+        },
+        description: {
+          pt: "ES6+, programação assíncrona e manipulação do DOM",
+          en: "ES6+, asynchronous programming and DOM manipulation",
+        },
         icon: FaJs,
       },
       {
-        name: "Tailwind CSS",
-        description: "UI responsiva, design systems e prototipagem rápida",
+        name: {
+          pt: "Tailwind CSS",
+          en: "Tailwind CSS",
+        },
+        description: {
+          pt: "UI responsiva, design systems e prototipagem rápida",
+          en: "Responsive UI, design systems and rapid prototyping",
+        },
         icon: RiTailwindCssFill,
       },
       {
-        name: "HTML5",
-        description: "Semântica, acessibilidade e estruturação de conteúdo",
+        name: {
+          pt: "HTML5",
+          en: "HTML5",
+        },
+        description: {
+          pt: "Semântica, acessibilidade e estruturação de conteúdo",
+          en: "Semantics, accessibility and content structuring",
+        },
         icon: FaHtml5,
       },
       {
-        name: "CSS3",
-        description: "Layouts flexíveis, animações e design responsivo",
+        name: {
+          pt: "CSS3",
+          en: "CSS3",
+        },
+        description: {
+          pt: "Layouts flexíveis, animações e design responsivo",
+          en: "Flexible layouts, animations and responsive design",
+        },
         icon: FaCss3Alt,
       },
     ],
   },
   {
-    title: "Performance & SEO",
+    title: {
+      pt: "Performance & SEO",
+      en: "Performance & SEO",
+    },
     skills: [
       {
-        name: "Core Web Vitals",
-        description: "Otimização de LCP, FID e CLS para melhor experiência",
+        name: {
+          pt: "Core Web Vitals",
+          en: "Core Web Vitals",
+        },
+        description: {
+          pt: "Otimização de LCP, FID e CLS para melhor experiência",
+          en: "LCP, FID and CLS optimization for better experience",
+        },
         icon: BsFillLightningChargeFill,
       },
       {
-        name: "Lighthouse",
-        description: "Auditorias de performance, acessibilidade e boas práticas",
+        name: {
+          pt: "Lighthouse",
+          en: "Lighthouse",
+        },
+        description: {
+          pt: "Auditorias de performance, acessibilidade e boas práticas",
+          en: "Performance, accessibility and best practices audits",
+        },
         icon: MdSpeed,
       },
       {
-        name: "SEO Técnico",
-        description: "Meta tags, structured data e otimização para buscadores",
+        name: {
+          pt: "SEO Técnico",
+          en: "Technical SEO",
+        },
+        description: {
+          pt: "Meta tags, structured data e otimização para buscadores",
+          en: "Meta tags, structured data and search engine optimization",
+        },
         icon: FaSearch,
       },
       {
-        name: "Lazy Loading",
-        description: "Carregamento otimizado de imagens e componentes",
+        name: {
+          pt: "Lazy Loading",
+          en: "Lazy Loading",
+        },
+        description: {
+          pt: "Carregamento otimizado de imagens e componentes",
+          en: "Optimized loading of images and components",
+        },
         icon: FaImage,
       },
     ],
   },
   {
-    title: "Ferramentas",
+    title: {
+      pt: "Ferramentas",
+      en: "Tools",
+    },
     skills: [
       {
-        name: "Git",
-        description: "Controle de versão, branches e colaboração em equipe",
+        name: {
+          pt: "Git",
+          en: "Git",
+        },
+        description: {
+          pt: "Controle de versão, branches e colaboração em equipe",
+          en: "Version control, branches and team collaboration",
+        },
         icon: FaGitAlt,
       },
       {
-        name: "GitHub",
-        description: "Pull requests, code review e CI/CD",
+        name: {
+          pt: "GitHub",
+          en: "GitHub",
+        },
+        description: {
+          pt: "Pull requests, code review e CI/CD",
+          en: "Pull requests, code review and CI/CD",
+        },
         icon: FaGithub,
       },
       {
-        name: "Vercel",
-        description: "Deploy contínuo, preview deployments e edge functions",
+        name: {
+          pt: "Vercel",
+          en: "Vercel",
+        },
+        description: {
+          pt: "Deploy contínuo, preview deployments e edge functions",
+          en: "Continuous deployment, preview deployments and edge functions",
+        },
         icon: IoLogoVercel,
       },
       {
-        name: "Vite",
-        description: "Build rápido, HMR instantâneo e bundling otimizado",
+        name: {
+          pt: "Vite",
+          en: "Vite",
+        },
+        description: {
+          pt: "Build rápido, HMR instantâneo e bundling otimizado",
+          en: "Fast build, instant HMR and optimized bundling",
+        },
         icon: SiVite,
       },
       {
-        name: "VS Code",
-        description: "Extensões, snippets e produtividade no desenvolvimento",
+        name: {
+          pt: "VS Code",
+          en: "VS Code",
+        },
+        description: {
+          pt: "Extensões, snippets e produtividade no desenvolvimento",
+          en: "Extensions, snippets and productivity in development",
+        },
         icon: VscVscode,
       },
     ],
