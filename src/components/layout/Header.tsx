@@ -58,22 +58,18 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import Link from "next/link";
 import { Menu, Moon, Sun, Globe } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
+import { pt } from "@/locales/pt";
+import { en } from "@/locales/en";
 import { MobileDrawer } from "@/components/layout/MobileDrawer";
 
-const navLinks = [
-  { href: "/#sobre", label: "Sobre" },
-  { href: "/#habilidades", label: "Habilidades" },
-  { href: "/#projetos", label: "Projetos" },
-  { href: "/#experiencia", label: "Experiência" },
-  { href: "/#contato", label: "Contato" },
-];
+
 
 type Language = "pt" | "en";
 
@@ -84,6 +80,16 @@ export function Header() {
   const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const { resolvedTheme, setTheme } = useTheme();
+
+  const t = language === "pt" ? pt : en;
+
+  const navLinks = useMemo(() => [
+    { href: "/#sobre", label: t.header.about },
+    { href: "/#habilidades", label: t.header.skills },
+    { href: "/#projetos", label: t.header.projects },
+    { href: "/#experiencia", label: t.header.experience },
+    { href: "/#contato", label: t.header.contact },
+  ], [t]);
 
   useEffect(() => {
     setMounted(true);
@@ -131,7 +137,7 @@ export function Header() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [isMenuOpen, navLinks]);
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "pt" ? "en" : "pt"));
@@ -187,7 +193,7 @@ export function Header() {
               size="sm"
               onClick={toggleLanguage}
               className="hidden sm:flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
-              aria-label="Alternar idioma"
+              aria-label={t.header.toggleLanguage}
             >
               <Globe className="h-4 w-4" />
               <span className="text-xs font-medium uppercase">{language}</span>
@@ -201,8 +207,8 @@ export function Header() {
               className="text-muted-foreground hover:text-foreground"
               aria-label={
                 currentTheme === "dark"
-                  ? "Ativar modo claro"
-                  : "Ativar modo escuro"
+                  ? t.header.toggleTheme.light
+                  : t.header.toggleTheme.dark
               }
             >
               {currentTheme === "dark" ? (
@@ -218,7 +224,7 @@ export function Header() {
               size="icon"
               className="lg:hidden"
               onClick={() => setIsMenuOpen(true)}
-              aria-label="Abrir menu"
+              aria-label={t.header.openMenu}
             >
               <Menu className="h-5 w-5" />
             </Button>
@@ -236,6 +242,7 @@ export function Header() {
         language={language}
         onToggleLanguage={toggleLanguage}
         activeSection={activeSection}
+        t={t.header}
       />
     </>
   );

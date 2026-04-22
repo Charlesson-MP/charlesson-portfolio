@@ -45,6 +45,7 @@ import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { pt } from "@/locales/pt";
 
 type Props = {
   isOpen: boolean;
@@ -53,6 +54,7 @@ type Props = {
   language: "pt" | "en";
   onToggleLanguage: () => void;
   activeSection?: string;
+  t: typeof pt.header;
 };
 
 export function MobileDrawer({
@@ -62,6 +64,7 @@ export function MobileDrawer({
   language,
   onToggleLanguage,
   activeSection,
+  t,
 }: Props) {
   const drawerRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -168,14 +171,14 @@ export function MobileDrawer({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border">
           <h2 id="drawer-title" className="text-lg font-semibold text-foreground">
-            Menu
+            {t.menu}
           </h2>
           <Button
             variant="ghost"
             size="icon"
             onClick={onClose}
             className="text-muted-foreground hover:text-foreground"
-            aria-label="Fechar menu"
+            aria-label={t.closeMenu}
           >
             <X className="h-5 w-5" />
           </Button>
@@ -219,11 +222,11 @@ export function MobileDrawer({
               size="sm"
               onClick={onToggleLanguage}
               className="w-full flex items-center justify-start gap-3 px-4 text-muted-foreground hover:text-foreground"
-              aria-label={`Alterar idioma, o idioma atual é ${language}`}
+              aria-label={t.toggleLanguage}
             >
               <Globe className="h-5 w-5" />
               <span className="text-sm font-medium uppercase">
-                Idioma: {language}
+                {t.languageLabel}: {language}
               </span>
             </Button>
           </div>
