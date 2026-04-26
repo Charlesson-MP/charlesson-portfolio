@@ -83,7 +83,7 @@ export function Hero() {
           <div className="flex-1 flex justify-center lg:justify-end w-full">
             <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-muted/30 shadow-2xl transition-transform duration-500 hover:-translate-y-2">
               <Image
-                src="/Charlesson.jpg"
+                src="/images/Charlesson.jpg"
                 alt="Charlesson Mendes Pereira"
                 fill
                 priority
