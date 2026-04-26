@@ -33,5 +33,26 @@ export const en = {
     title: "Skills",
     subtitle: "Technologies and tools I use",
     hint: "Hover over each skill to see how I use it in my daily work.",
-  }
+  },
+  projects: {
+    title: "Projects",
+    subtitle: "Some of my recent work",
+    btnBackLabel: "Back to projects",
+    CTATitleProjectDetails: "View all projects",
+    liveDemo: "Live Demo",
+    imageAlt: "Project preview",
+    readFullDescription: "Read full description",
+    fullDescription: "Project description",
+    sections: {
+      problem: "The problem",
+      solution: "The solution",
+      technologies: "Technologies",
+      features: "Key Features",
+      challenges: "Challenges faced",
+      learnings: "Learnings",
+      improvements: "Future improvements",
+      projectStructure: "Project Structure",
+      howToRun: "How to run",
+    },
+  },
 }

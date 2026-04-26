@@ -1,5 +1,5 @@
 /**
- * Tech Stack Component
+ * Tech Stack Component (Client)
  *
  * Visually displays the technologies used in a project as interactive cards.
  * More engaging than simple badges — each tech gets its own card with
@@ -8,13 +8,17 @@
  * Responsibilities:
  * - Map technology string keys to react-icons components
  * - Render a responsive grid of tech cards
+ * - Resolve localized tech descriptions (pt/en) based on the active language
  * - Provide hover effects for interactivity
  *
  * Notes:
+ * - Client Component because it uses useLanguage to resolve localized fields.
  * - Icon resolution uses a static map from string keys to react-icons components.
  *   This keeps the data layer serializable while leveraging the existing icon library.
  * - Fallback to a generic icon if the key is not found.
  */
+
+"use client"
 
 import { type IconType } from "react-icons"
 import {
@@ -32,6 +36,7 @@ import { SiTypescript, SiVite } from "react-icons/si"
 import { IoLogoVercel } from "react-icons/io5"
 import { Code } from "lucide-react"
 import type { TechItem } from "@/types/projects"
+import { useLanguage } from "@/hooks/use-language"
 
 /**
  * Maps icon string keys (from data layer) to react-icons components.
@@ -58,6 +63,8 @@ type TechStackProps = {
 }
 
 export function TechStack({ items }: TechStackProps) {
+  const { language } = useLanguage()
+  
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {items.map((tech) => {
@@ -80,7 +87,7 @@ export function TechStack({ items }: TechStackProps) {
                 {tech.name}
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed mt-0.5">
-                {tech.description}
+                {tech.description[language]}
               </p>
             </div>
           </div>

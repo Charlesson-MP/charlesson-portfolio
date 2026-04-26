@@ -33,5 +33,26 @@ export const pt = {
     title: "Habilidades",
     subtitle: "Tecnologias e ferramentas que utilizo",
     hint: "Passe o mouse sobre cada habilidade para ver como a utilizo no dia a dia."
-  }
+  },
+  projects: {
+    title: "Projetos",
+    subtitle: "Alguns dos meus trabalhos recentes",
+    btnBackLabel: "Voltar para projetos",
+    CTATitleProjectDetails: "Ver todos os projetos",
+    liveDemo: "Demonstração",
+    imageAlt: "Preview do projeto",
+    readFullDescription: "Ler descrição completa",
+    fullDescription: "Descrição do projeto",
+    sections: {
+      problem: "O problema",
+      solution: "A solução",
+      technologies: "Tecnologias",
+      features: "Funcionalidades principais",
+      challenges: "Desafios enfrentados",
+      learnings: "Aprendizados",
+      improvements: "Melhorias futuras",
+      projectStructure: "Estrutura do projeto",
+      howToRun: "Como executar",
+    },
+  },
 }

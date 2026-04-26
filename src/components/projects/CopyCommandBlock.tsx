@@ -6,13 +6,14 @@
  *
  * Responsibilities:
  * - Render commands in a dark, monospace terminal-style block
+ * - Resolve localized command labels (pt/en) based on the active language
  * - Provide a copy button per command with visual feedback
  * - Handle clipboard API interaction
  * - Show success state briefly after copying
  *
  * Notes:
- * - Client Component because it uses useState for copy feedback
- *   and the navigator.clipboard API.
+ * - Client Component because it uses useState for copy feedback,
+ *   the navigator.clipboard API, and useLanguage for localized labels.
  * - Falls back gracefully if clipboard API is unavailable.
  */
 
@@ -21,6 +22,7 @@
 import { useState, useCallback } from "react"
 import { Copy, Check } from "lucide-react"
 import type { Command } from "@/types/projects"
+import { useLanguage } from "@/hooks/use-language"
 
 type CopyCommandBlockProps = {
   commands: Command[]
@@ -28,6 +30,7 @@ type CopyCommandBlockProps = {
 
 export function CopyCommandBlock({ commands }: CopyCommandBlockProps) {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
+  const { language } = useLanguage()
 
   const handleCopy = useCallback(async (command: string, index: number) => {
     try {
@@ -60,7 +63,7 @@ export function CopyCommandBlock({ commands }: CopyCommandBlockProps) {
           >
             <div className="flex-1 min-w-0">
               <p className="text-[11px] text-white/40 mb-1 font-sans">
-                {cmd.label}
+                {cmd.label[language]}
               </p>
               <code className="text-sm font-mono text-[#7ee787] block truncate">
                 <span className="text-[#6e7681] select-none">$ </span>
