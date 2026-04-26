@@ -17,26 +17,38 @@ export const projects: Project[] = [
   {
     slug: "mile-artesanatos",
     title: "Mile Artesanatos",
-    image: "/projects/preview-mile-artesanatos.png",
-    description: "Vitrine virtual para negócio real. Foco em UX, validação server-side e integração com formulários de contato.",
-    tech: ["React", "Tailwind CSS", "Validação"],
+    image: "/projects/mile-artesanatos/preview-mile-artesanatos-1.png",
+    description:
+    {
+      pt: "Plataforma web de e-commerce de artesanato desenvolvida com Next.js e Tailwind CSS, com foco em desempenho, design responsivo e validações server-side para garantir segurança e integridade dos dados.",
+      en: "Craft e-commerce platform built with Next.js and Tailwind CSS, focused on performance, responsive design, and server-side validation to ensure data security and integrity.",
+    },
+    tech: ["Next.js", "Tailwind CSS", "Validação", "TypeScript"],
     liveUrl: "https://mile-artesanatos.vercel.app/",
     githubUrl: "https://github.com/Charlesson-MP/mile-artesanatos",
   },
   {
     slug: "mortugaba-tech",
     title: "Mortugaba Tech",
-    image: "/projects/preview-mortugaba-tech.png",
-    description: "Projeto em equipe desenvolvido com Next.js e Tailwind CSS. Foco em colaboração, workflow com Git e UI responsiva.",
-    tech: ["Next.js", "Tailwind CSS", "Git", "TypeScript"],
+    image: "/projects/mortugaba-tech/preview-mortugaba-tech-1.png",
+    description:
+    {
+      pt: "Plataforma institucional moderna desenvolvida com Next.js e Tailwind CSS para apresentar serviços e soluções tecnológicas, com foco em design responsivo, organização de conteúdo e experiência do usuário.",
+      en: "Modern institutional platform built with Next.js and Tailwind CSS to showcase technology services and solutions, focused on responsive design, content organization, and user experience.",
+    },
+    tech: ["Next.js", "Tailwind CSS", "SEO", "TypeScript", "UX"],
     liveUrl: "https://mortugaba-tech.vercel.app/",
     githubUrl: "https://github.com/Charlesson-MP/mortugaba-tech",
   },
   {
     slug: "los-burgers",
     title: "Los Burgers",
-    image: "/projects/preview-los-burgers.png",
-    description: "Landing page comercial focada em performance e SEO. Otimização de Core Web Vitals e boas práticas de carregamento.",
+    image: "/projects/los-burgers/preview-los-burgers-1.png",
+    description:
+    {
+      pt: "Aplicação de e-commerce para delivery de hamburgueria desenvolvida com Vue.js e Tailwind CSS, com foco em experiência do usuário, navegação fluida e interface moderna.",
+      en: "Burger delivery e-commerce application built with Vue.js and Tailwind CSS, focused on user experience, smooth navigation, and a modern interface.",
+    },
     tech: ["Vue.js", "Tailwind CSS", "SEO", "Performance"],
     liveUrl: "https://los-burgers.vercel.app/",
     githubUrl: "https://github.com/Charlesson-MP/los-burgers",
@@ -44,10 +56,14 @@ export const projects: Project[] = [
   {
     slug: "wiki-movies",
     title: "Wiki Movies",
-    image: "/projects/preview-wiki-movies.png",
-    description: "SPA desenvolvida com JavaScript e consumo de API externa. Renderização dinâmica e sistema de busca.",
+    image: "/projects/wiki-movies/preview-wiki-movies-1.png",
+    description:
+    {
+      pt: "Aplicação web para busca e exploração de filmes consumindo API externa, com interface dinâmica e foco em organização e exibição de dados.",
+      en: "Web application for searching and exploring movies using an external API, featuring a dynamic interface focused on data organization and presentation.",
+    },
     tech: ["JavaScript", "REST API", "CSS3", "HTML5"],
     liveUrl: "https://charlesson-mp.github.io/wiki-movies/",
     githubUrl: "https://github.com/Charlesson-MP/wiki-movies",
   },
-]
+]

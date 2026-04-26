@@ -8,8 +8,13 @@
  * - Manage active image state (client-side interactivity)
  * - Render thumbnail strip with active indicator
  * - Support keyboard navigation (ArrowLeft/ArrowRight)
- * - Provide smooth transitions between images
+ * - Provide smooth horizontal slide transitions between images
  * - Responsive layout: horizontal thumbnails on all sizes
+ *
+ * Animation Strategy:
+ * - Render all images positioned absolutely.
+ * - Use CSS transform: translateX() based on the image's index relative to the activeIndex.
+ * - This creates a "film strip" effect where images are glued together and push each other.
  *
  * Notes:
  * - This is a Client Component because it manages interactive state.
@@ -31,15 +36,13 @@ type ProjectGalleryProps = {
 export function ProjectGallery({ images, title }: ProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const goTo = useCallback(
-    (index: number) => {
-      setActiveIndex((index + images.length) % images.length)
-    },
-    [images.length]
-  )
+  const goNext = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % images.length)
+  }, [images.length])
 
-  const goNext = useCallback(() => goTo(activeIndex + 1), [activeIndex, goTo])
-  const goPrev = useCallback(() => goTo(activeIndex - 1), [activeIndex, goTo])
+  const goPrev = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + images.length) % images.length)
+  }, [images.length])
 
   return (
     <div
@@ -52,30 +55,44 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
       }}
       tabIndex={0}
     >
-      {/* Main Image */}
+      {/* Main Image Container */}
       <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border/50 bg-muted group">
-        <Image
-          src={images[activeIndex]}
-          alt={`${title} — preview ${activeIndex + 1} of ${images.length}`}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
-          className="object-cover transition-transform duration-500"
-          priority={activeIndex === 0}
-        />
+        
+        {/* Film Strip: All images rendered and translated based on activeIndex */}
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className="absolute top-0 left-0 w-full h-full transition-transform duration-500 cubic-bezier(0.25, 0.1, 0.25, 1) will-change-transform"
+            style={{ 
+              transform: `translateX(${(index - activeIndex) * 100}%)`,
+              transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)"
+            }}
+            aria-hidden={index !== activeIndex}
+          >
+            <Image
+              src={image}
+              alt={`${title} — preview ${index + 1} of ${images.length}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
+              className="object-cover"
+              priority={index === 0}
+            />
+          </div>
+        ))}
 
         {/* Navigation Arrows */}
         {images.length > 1 && (
           <>
             <button
               onClick={goPrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-background"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-background z-10"
               aria-label="Previous image"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={goNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-background"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-background z-10"
               aria-label="Next image"
             >
               <ChevronRight className="w-4 h-4" />
@@ -85,7 +102,7 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
 
         {/* Image Counter */}
         {images.length > 1 && (
-          <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-background/80 backdrop-blur-sm border border-border/50 text-xs font-medium text-muted-foreground">
+          <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-background/80 backdrop-blur-sm border border-border/50 text-xs font-medium text-muted-foreground z-10">
             {activeIndex + 1} / {images.length}
           </div>
         )}
