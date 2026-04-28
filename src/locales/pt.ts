@@ -55,4 +55,9 @@ export const pt = {
       howToRun: "Como executar",
     },
   },
+  howIWork: {
+    title: "Metodologia",
+    subtitle: "Como eu trabalho",
+    description: "Minha abordagem para desenvolver soluções eficientes, escaláveis e bem estruturadas.",
+  }
 }
