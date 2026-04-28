@@ -1,16 +1,8 @@
 /**
  * Card Component
  *
- * A reusable base component for structuring content layout.
- * Used across the application for sections such as skills, projects,
- * and other informational blocks.
- *
- * - Inspired by shadcn/ui design patterns
- * - Supports composition (CardHeader, CardContent, etc.)
- * - Extensible via `className` using the `cn` utility
- *
- * Purpose:
- * Ensure visual consistency and promote reuse within the project's design system.
+ * Composable content container (Card, CardHeader, CardContent, CardFooter, etc.)
+ * used across skills, projects, and other informational blocks.
  */
 
 import * as React from 'react'

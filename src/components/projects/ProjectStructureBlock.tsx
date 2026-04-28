@@ -1,18 +1,7 @@
 /**
- * Project Structure Block Component
+ * ProjectStructureBlock Component
  *
- * Renders a project's file/folder structure in a styled code block
- * that resembles a terminal file tree.
- *
- * Responsibilities:
- * - Display the project structure string in a monospace format
- * - Style the block consistently with the terminal/code aesthetic
- * - Ensure readability with proper font sizing and line height
- *
- * Notes:
- * - The structure data is a pre-formatted string with tree characters
- *   (├── └── │). This keeps the data simple and readable in the source.
- * - Uses the same dark terminal styling as CopyCommandBlock for consistency.
+ * Renders a project's file/folder tree in a dark terminal-styled code block.
  */
 
 type ProjectStructureBlockProps = {

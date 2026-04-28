@@ -1,21 +1,8 @@
 /**
- * Project Hero Component (Client)
+ * ProjectHero Component
  *
- * The top section of the project detail page.
- * Combines the image gallery, project title, description, and action links
- * into a visually impactful hero area.
- *
- * Responsibilities:
- * - Display project title and subtitle with strong typography
- * - Resolve localized strings (subtitle, description) based on the active language
- * - Clamps long descriptions to standardize layout height, providing a modal for full text
- * - Compose the ProjectGallery and ProjectLinks components
- * - Provide a gradient background for visual depth
- * - Include a "Back to Projects" navigation link
- *
- * Notes:
- * - Client Component because it uses useLanguage to resolve localized fields
- *   and manages modal state.
+ * Top section of the project detail page with title, description,
+ * image gallery, action links, and a full-description modal.
  */
 
 "use client"

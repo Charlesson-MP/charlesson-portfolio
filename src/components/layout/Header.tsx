@@ -1,59 +1,8 @@
 /**
  * Header Component
  *
- * Main navigation bar of the application, responsible for global navigation,
- * theme control, language switching, scroll spy behavior, and mobile menu integration.
- *
- * Responsibilities:
- * - Render primary navigation links (desktop and mobile)
- * - Provide theme toggle (light/dark mode)
- * - Provide language toggle (pt/en)
- * - Control mobile navigation drawer (open/close state)
- * - Enhance UX with scroll-based visual feedback and active section tracking
- * - Track visible sections and update navigation state (scroll spy)
- *
- * Behavior:
- * - Fixed at the top of the viewport
- * - Changes appearance on scroll (background, blur, border, shadow)
- * - Updates URL hash dynamically based on visible section
- * - Highlights active navigation item based on viewport position
- * - Responsive layout:
- *   - Desktop: inline navigation links
- *   - Mobile: hamburger menu + drawer (MobileDrawer)
- *
- * State Management:
- * - `isMenuOpen`: controls MobileDrawer visibility
- * - `isScrolled`: tracks scroll position to apply visual styles
- * - `mounted`: ensures theme is only resolved after client hydration
- * - `activeSection`: tracks the section currently in view (scroll spy)
- * - Language state is managed globally via `useLanguage()` hook
- *
- * Theme Handling:
- * - Uses `next-themes` to manage light/dark mode
- * - Prevents hydration mismatch by deferring theme resolution until mount
- *
- * Accessibility:
- * - Buttons include descriptive aria-labels
- * - Navigation is keyboard accessible
- * - Mobile menu integrates with an accessible dialog (MobileDrawer)
- *
- * Integration:
- * - Uses `MobileDrawer` for mobile navigation
- * - Uses `Logo` component for branding
- * - Uses custom `Button` component for consistent UI
- * - Uses `useLanguage()` and `useTranslation()` hooks for i18n
- *
- * Dependencies:
- * - Next.js Link (client-side navigation)
- * - lucide-react (icons)
- * - next-themes (theme management)
- *
- * Notes:
- * - Uses IntersectionObserver for efficient scroll detection
- * - Scroll listener is attached on mount and cleaned up on unmount
- * - Layout constrained using max-width container (max-w-7xl)
- * - Logo acts as a shortcut to the top (hero section)
- * - Navigation highlight is disabled when hero section is active
+ * Main navigation bar with desktop/mobile navigation, theme toggle,
+ * language switching, and scroll spy-based active section tracking.
  */
 
 "use client";

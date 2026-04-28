@@ -1,14 +1,42 @@
 /**
- * Projects Data
+ * Projects Data (Project Listing)
  *
- * A collection of professional projects showcasing technical skills and problem-solving abilities.
- * Each project includes a description, technologies used, and links to live demos and source code.
+ * Contains the data used to render the project listing section
+ * of the portfolio.
  *
- * Technical Notes:
- * - Uses TypeScript interfaces for type safety.
- * - Follows a consistent structure for easy maintenance and scaling.
- * - Includes real-world examples of collaboration, performance optimization, and front-end development.
- * - The `slug` field is used for routing to /projects/[slug] detail pages.
+ * Purpose:
+ * - Provide a centralized, data-driven definition of project summaries.
+ * - Keep content separated from UI logic for better maintainability and scalability.
+ * - Enable easy updates, additions, or reordering without modifying components.
+ *
+ * Structure:
+ * - Each item follows the `Project` type defined in `/types/projects.ts`.
+ * - Represents a lightweight version of a project (used in cards/lists).
+ * - Full project details are defined separately in `project-details.ts`.
+ *
+ * Data Modeling:
+ * - Uses `slug` as a unique identifier and route key (`/projects/[slug]`).
+ * - Uses `LocalizedString` for descriptions (pt/en).
+ * - Keeps only essential data for the listing UI (title, image, tech, links).
+ *
+ * Fields:
+ * - `slug`: Unique identifier used for routing and data linking.
+ * - `title`: Project name (not localized).
+ * - `image`: Preview image path.
+ * - `description`: Localized short description of the project.
+ * - `tech`: List of technologies used (display-oriented).
+ * - `liveUrl`: Link to the live project.
+ * - `githubUrl`: Link to the source code repository.
+ *
+ * Usage:
+ * - Imported and consumed by the Projects section component.
+ * - Typically rendered as cards or grid layouts.
+ * - Linked to detailed pages via the `slug` field.
+ *
+ * Notes:
+ * - This file is purely declarative and should not contain logic.
+ * - UI concerns (layout, animations, formatting) are handled in components.
+ * - Keep descriptions concise — detailed explanations belong in `project-details.ts`.
  */
 
 import { Project } from "@/types/projects"

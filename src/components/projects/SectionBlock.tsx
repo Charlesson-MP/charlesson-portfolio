@@ -1,16 +1,7 @@
 /**
- * Section Block Component
+ * SectionBlock Component
  *
- * A reusable wrapper that provides consistent structure for each
- * content section on the project detail page.
- *
- * Responsibilities:
- * - Render a section heading with an optional icon
- * - Provide consistent spacing and styling across all detail sections
- * - Accept children for flexible content composition
- *
- * Used by: ProjectDetailsPage for Problem, Solution, Challenges,
- * Learnings, and Future Improvements sections.
+ * Reusable section wrapper with icon + title heading for project detail pages.
  */
 
 import { cn } from "@/lib/utils"

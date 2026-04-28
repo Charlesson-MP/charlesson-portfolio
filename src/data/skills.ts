@@ -1,20 +1,37 @@
 /**
  * Skills Data
  *
- * Centralized data source for all skill categories and items displayed
- * in the Skills section of the portfolio.
- *
- * - Organized by category (e.g., Frontend, Performance, Tools)
- * - Each skill includes name, description, and icon reference
- * - Icons are stored as components (IconType) for flexible rendering
+ * Contains the data used to render the Skills section of the portfolio.
  *
  * Purpose:
- * Separate content from presentation, keeping the UI components clean,
- * maintainable, and focused only on rendering.
+ * - Provide a centralized, data-driven definition of skill categories and items.
+ * - Keep content separated from UI logic for better maintainability and scalability.
+ * - Allow easy updates, reordering, and localization without modifying components.
+ *
+ * Structure:
+ * - Data is organized into categories (e.g., Frontend, Performance & SEO, Tools).
+ * - Each category contains a list of skills.
+ * - Each skill includes:
+ *   - `name`: Localized skill name (pt/en)
+ *   - `description`: Localized description of the skill
+ *   - `icon`: Icon component from `react-icons`
+ *
+ * Data Modeling:
+ * - Follows the `SkillCategory` type defined in `/types/skills.ts`.
+ * - Uses `LocalizedString` from `/types/common.ts` for multilingual support.
+ *
+ * Icons:
+ * - Icons are imported from `react-icons` and stored as component references.
+ * - This allows flexible rendering and styling directly in the UI layer.
+ *
+ * Usage:
+ * - Imported and consumed by the Skills section component.
+ * - Typically rendered as grouped cards, grids, or interactive lists.
  *
  * Notes:
- * This structure allows easy updates, scalability, and future integration
- * with external data sources (e.g., CMS or API).
+ * - This file is purely declarative and should not contain business logic.
+ * - UI concerns such as layout, animations, and formatting are handled in components.
+ * - New skills or categories can be added without impacting existing structure.
  */
 
 import { SkillCategory } from "@/types/skills"

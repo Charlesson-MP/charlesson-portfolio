@@ -1,25 +1,8 @@
 /**
  * Tooltip Component
  *
- * A reusable tooltip abstraction built on top of Radix UI primitives.
- * Provides accessible, composable, and customizable tooltip behavior.
- *
- * - Wraps Radix Tooltip primitives (Provider, Root, Trigger, Content)
- * - Handles global configuration (e.g., delayDuration) internally
- * - Uses `cn` utility for flexible styling with Tailwind CSS
- * - Includes animations, positioning, and arrow support out of the box
- *
- * Usage:
- * <Tooltip>
- *   <TooltipTrigger asChild>
- *     <button>Hover me</button>
- *   </TooltipTrigger>
- *   <TooltipContent>Tooltip text</TooltipContent>
- * </Tooltip>
- *
- * Purpose:
- * Ensure consistent tooltip behavior and styling across the application
- * while simplifying the API for reuse.
+ * Hover-triggered informational overlay built on Radix UI primitives.
+ * Includes built-in provider, animations, and arrow positioning.
  */
 
 'use client'

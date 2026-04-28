@@ -1,24 +1,8 @@
 /**
  * Button Component
  *
- * A highly customizable and reusable button component built using shadcn/ui patterns.
- * Supports multiple variants (primary, secondary, etc.), sizes, and polymorphic rendering (asChild).
- *
- * - Built on top of Radix UI Slot for polymorphic 'as' behavior.
- * - Uses `class-variance-authority` (cva) for managing visual states and variants.
- * - Integrated with Tailwind CSS for styling and custom `cn` utility for class merging.
- *
- * Responsibilities:
- * - Provide a consistent button interface across the application.
- * - Handle different visual states (hover, focus, disabled, loading).
- * - Support accessibility defaults for interactive elements.
- *
- * Usage:
- * <Button variant="default" size="lg" onClick={() => {}}>Click Me</Button>
- *
- * Technical Notes:
- * - Uses `forwardRef` to allow parent components to access the underlying DOM node.
- * - `asChild` prop enables rendering the button as a different element (e.g., a Next.js Link).
+ * Reusable button with variant and size support. Built on Radix UI Slot
+ * for polymorphic rendering via the `asChild` prop.
  */
 
 import * as React from 'react'

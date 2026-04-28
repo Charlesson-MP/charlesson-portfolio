@@ -1,43 +1,8 @@
 /**
  * MobileDrawer Component
  *
- * An accessible and controlled mobile navigation drawer that slides in from the right.
- * Designed to replace the default mobile menu with a more robust and user-friendly experience.
- *
- * Responsibilities:
- * - Render navigation links dynamically for mobile users
- * - Provide a language toggle (pt/en)
- * - Handle open/close interactions (overlay click, close button, link click, Escape key)
- * - Manage focus behavior for accessibility
- * - Prevent background scrolling when active
- *
- * Accessibility Features:
- * - Uses `role="dialog"` and `aria-modal="true"` to define modal behavior
- * - Moves focus to the first interactive element when opened
- * - Restores focus to the triggering element when closed
- * - Implements manual focus trap (Tab / Shift+Tab) to keep navigation within the drawer
- * - Supports keyboard interaction (Escape to close)
- *
- * Behavior:
- * - Controlled via `isOpen` prop (controlled component pattern)
- * - Slides in/out using CSS transforms (translate-x)
- * - Overlay blocks interaction with background content
- * - Body scroll is locked while the drawer is open
- *
- * Technical Notes:
- * - Uses a helper (`getFocusableElements`) to centralize focusable element queries
- * - Consolidates keyboard handling into a single event listener
- * - Uses `requestAnimationFrame` to ensure DOM readiness before applying focus
- * - Language state and translations are accessed via hooks (`useLanguage`, `useTranslation`)
- *
- * Integration:
- * - Typically used inside the Header component
- * - Receives navigation links, open state, and close handler via props
- *
- * Dependencies:
- * - Next.js Link (client-side navigation)
- * - lucide-react (icons)
- * - Custom Button component
+ * Accessible slide-in navigation drawer for mobile viewports.
+ * Includes focus trap, scroll lock, and language toggle.
  */
 
 "use client";

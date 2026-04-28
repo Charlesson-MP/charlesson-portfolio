@@ -1,18 +1,7 @@
 /**
- * Feature List Component (Client)
+ * FeatureList Component
  *
- * Displays project features as numbered cards in a responsive grid.
- * Each feature has a title and description, presented with a visual
- * numbering system for clear hierarchy.
- *
- * Responsibilities:
- * - Render features in a 1-2 column responsive grid
- * - Provide numbered indicators for each feature
- * - Maintain visual consistency with the card-based design system
- * - Resolve localized strings (pt/en) based on the active language
- *
- * Notes:
- * - Client Component because it uses useLanguage to resolve localized fields.
+ * Renders project features as numbered cards in a responsive grid.
  */
 
 "use client"

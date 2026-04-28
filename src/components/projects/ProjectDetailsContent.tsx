@@ -1,21 +1,8 @@
 /**
- * Project Details Content (Client Component)
+ * ProjectDetailsContent Component
  *
- * Renders the full content body of a project detail page.
- * Extracted from page.tsx to isolate client-side i18n logic
- * (useLanguage, useTranslation) away from the Server Component page shell.
- *
- * Responsibilities:
- * - Resolve all localized strings based on the active language
- * - Compose all project detail sections (hero, problem, solution, etc.)
- * - Use section titles from locale files (t.projects.sections)
- * - Provide the "Back to Projects" navigation CTA
- *
- * Architecture Notes:
- * - This is a Client Component because it depends on useLanguage/useTranslation.
- * - The parent page.tsx remains a Server Component for generateMetadata/generateStaticParams.
- * - Project data is passed as a serialized prop from the server.
- * - Section titles come from locale files, NOT from project data (avoids repetition).
+ * Composes the full project detail page body (hero, sections, navigation).
+ * Extracted as a Client Component to isolate i18n hooks from the Server Component page shell.
  */
 
 "use client"

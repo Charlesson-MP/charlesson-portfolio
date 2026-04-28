@@ -1,17 +1,7 @@
 /**
  * Badge Component
- * 
- * A versatile badge component for displaying labels, tags, or status indicators.
- * Supports different variants and can be used as a standalone element or within other components.
- * 
- * Technical Notes:
- * - Uses shadcn/ui Badge component for styling and functionality.
- * - Supports both default and outline variants.
- * - Can be used as a standalone element or within other components.
- * 
- * Usage:
- * <Badge variant="default">Default</Badge>
- * <Badge variant="outline">Outline</Badge>
+ *
+ * Inline label for tags, statuses, or categories. Supports multiple variants.
  */
 
 import * as React from 'react'

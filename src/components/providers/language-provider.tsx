@@ -1,22 +1,8 @@
 /**
- * Language Provider
+ * LanguageProvider Component
  *
- * Provides language management to the entire application via React Context.
- * Wraps the component tree in `layout.tsx` alongside `ThemeProvider`.
- *
- * Responsibilities:
- * - Initialize and manage the current language state
- * - Persist the selected language in `localStorage`
- * - Provide `language`, `setLanguage`, and `toggleLanguage` via context
- *
- * Hydration Safety:
- * - The provider always renders with the default language (`"pt"`) on the server
- * - After mount, it reads `localStorage` and updates state if a persisted
- *   value is found, avoiding SSR/client mismatch
- *
- * Technical Notes:
- * - Marked with `"use client"` because it depends on browser APIs (`localStorage`)
- * - The context is exported for use by `useLanguage()` and `useTranslation()` hooks
+ * Manages language state via React Context with localStorage persistence.
+ * Hydration-safe: defaults to "pt" on the server, reads stored preference after mount.
  */
 
 "use client";

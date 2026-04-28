@@ -1,20 +1,8 @@
 /**
- * Copy Command Block Component (Client)
+ * CopyCommandBlock Component
  *
- * A terminal-styled code block with copy-to-clipboard functionality.
+ * Terminal-styled code block with per-command copy-to-clipboard functionality.
  * Used in the "How to Run" section of the project detail page.
- *
- * Responsibilities:
- * - Render commands in a dark, monospace terminal-style block
- * - Resolve localized command labels (pt/en) based on the active language
- * - Provide a copy button per command with visual feedback
- * - Handle clipboard API interaction
- * - Show success state briefly after copying
- *
- * Notes:
- * - Client Component because it uses useState for copy feedback,
- *   the navigator.clipboard API, and useLanguage for localized labels.
- * - Falls back gracefully if clipboard API is unavailable.
  */
 
 "use client"

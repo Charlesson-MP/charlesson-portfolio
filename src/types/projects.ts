@@ -3,36 +3,43 @@
  *
  * Defines all types related to the projects domain in the portfolio.
  *
+ * Purpose:
+ * - Provide structured and type-safe models for project data.
+ * - Ensure consistency between data (`/data`) and UI layers.
+ * - Support scalable and maintainable project case studies.
+ *
  * Architecture (Option B — Separated Data):
- * - `Project` is used by the project listing cards (summary data).
- * - `ProjectDetails` is used by the project detail/case study page (full data).
- * - Both are linked by the `slug` field, enabling independent data files
- *   while maintaining a clear relationship.
+ * - `Project` → summary data for listing cards
+ * - `ProjectDetails` → full data for case study pages
+ * - Both are linked via the `slug` field
  *
- * Supporting types:
- * - `TechItem`: A technology with icon identifier and description.
- * - `Feature`: A project feature with title and description.
- * - `Command`: A terminal command with a label for the "How to Run" section.
- * - `LocalizedString`: A string localized in Portuguese and English.
- * - `LocalizedStringList`: A list of strings localized in Portuguese and English.
+ * Data Modeling:
+ * - Separates project content from UI labels (handled in locale files)
+ * - Stores only project-specific data in this domain
+ * - Supports multilingual content using shared types
  *
- * Note on section titles:
- * - Section titles (e.g., "The Problem", "Challenges") are UI labels, not project data.
- *   They live in the locale files (pt.ts / en.ts) under `projects.sections`.
- *   This avoids repeating the same titles across every project entry.
+ * Shared Types:
+ * - Uses reusable types from `/types/common.ts`:
+ *   - `LocalizedString`
+ *   - `LocalizedStringList`
+ *
+ * Types:
+ * - `Project`: Lightweight summary used in listings
+ * - `ProjectDetails`: Full case study data
+ * - `TechItem`: Technology with icon key and description
+ * - `Feature`: Feature with title and description
+ * - `Command`: Terminal command for setup instructions
  *
  * Usage:
- * - Card listing imports `Project` from data/projects.ts
- * - Detail page imports `ProjectDetails` from data/project-details.ts
+ * - Listing components use `Project`
+ * - Detail pages use `ProjectDetails`
+ *
+ * Notes:
+ * - Icon fields use string identifiers to keep the data layer serializable
+ * - Icon mapping (string → component) is handled in the UI layer
+ * - This file defines structure only — no data or UI logic
  */
-
-/**
- * Reusable localized string type — reduces boilerplate across the data model.
- */
-export type LocalizedString = {
-  pt: string
-  en: string
-}
+import { LocalizedString } from "./common"
 
 /**
  * Reusable localized string list type — for challenges, learnings, etc.

@@ -1,24 +1,8 @@
 /**
- * Project Gallery Component (Client)
+ * ProjectGallery Component
  *
- * An interactive image gallery for the project hero section.
- * Displays a main preview image with a thumbnail strip for navigation.
- *
- * Responsibilities:
- * - Manage active image state (client-side interactivity)
- * - Render thumbnail strip with active indicator
- * - Support keyboard navigation (ArrowLeft/ArrowRight)
- * - Provide smooth horizontal slide transitions between images
- * - Responsive layout: horizontal thumbnails on all sizes
- *
- * Animation Strategy:
- * - Render all images positioned absolutely.
- * - Use CSS transform: translateX() based on the image's index relative to the activeIndex.
- * - This creates a "film strip" effect where images are glued together and push each other.
- *
- * Notes:
- * - This is a Client Component because it manages interactive state.
- * - Uses Next.js Image for optimized loading.
+ * Interactive image gallery with thumbnail navigation, keyboard controls,
+ * and smooth horizontal slide transitions between images.
  */
 
 "use client"

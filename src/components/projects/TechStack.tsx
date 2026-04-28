@@ -1,21 +1,8 @@
 /**
- * Tech Stack Component (Client)
+ * TechStack Component
  *
- * Visually displays the technologies used in a project as interactive cards.
- * More engaging than simple badges — each tech gets its own card with
- * an icon, name, and brief description.
- *
- * Responsibilities:
- * - Map technology string keys to react-icons components
- * - Render a responsive grid of tech cards
- * - Resolve localized tech descriptions (pt/en) based on the active language
- * - Provide hover effects for interactivity
- *
- * Notes:
- * - Client Component because it uses useLanguage to resolve localized fields.
- * - Icon resolution uses a static map from string keys to react-icons components.
- *   This keeps the data layer serializable while leveraging the existing icon library.
- * - Fallback to a generic icon if the key is not found.
+ * Displays project technologies as interactive cards with icons,
+ * names, and localized descriptions.
  */
 
 "use client"

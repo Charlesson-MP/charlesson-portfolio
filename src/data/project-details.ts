@@ -1,20 +1,61 @@
 /**
- * Project Details Data
+ * Project Details Data (Case Studies)
  *
- * Full case study content for each project in the portfolio.
- * This data powers the /projects/[slug] detail pages.
+ * Contains the full case study data for each project in the portfolio.
+ * This file powers the `/projects/[slug]` dynamic detail pages.
  *
- * Responsibilities:
- * - Provide complete project information (problem, solution, tech, etc.)
- * - Supply image galleries, terminal commands, and file structures
- * - Expose a lookup helper for fetching by slug
+ * Purpose:
+ * - Provide a complete, structured representation of each project.
+ * - Keep content separated from UI logic for maintainability and scalability.
+ * - Enable rich storytelling (problem, solution, challenges, learnings, etc.).
  *
- * Architecture Notes:
- * - Separated from data/projects.ts (summary data) following Option B.
- * - Data is serializable — no component imports. Tech icons are resolved
- *   at render time by the TechStack component using the `icon` string key.
- * - To add a new project: append a ProjectDetails object and add images
- *   to public/projects/[slug]/.
+ * Architecture:
+ * - Follows Option B (Separated Data):
+ *   - `projects.ts` → summary data (listing/cards)
+ *   - `project-details.ts` → full case study data
+ * - Both are linked via the `slug` field.
+ *
+ * Structure:
+ * - Each item follows the `ProjectDetails` type defined in `/types/projects.ts`.
+ * - Represents the full version of a project (used in detail pages).
+ *
+ * Data Modeling:
+ * - Uses `slug` as a unique identifier and route key.
+ * - Uses `LocalizedString` and `LocalizedStringList` for multilingual content (pt/en).
+ * - Stores only project-specific content — UI labels come from locale files.
+ *
+ * Content Sections:
+ * - `description`: Overview of the project
+ * - `problem`: Context and motivation
+ * - `solution`: Approach and implementation
+ * - `tech`: Technology stack with descriptions
+ * - `features`: Key features of the project
+ * - `challenges`: Technical or process difficulties faced
+ * - `learnings`: Key takeaways from the project
+ * - `improvements`: Possible future enhancements
+ *
+ * Media & Extras:
+ * - `images`: Project gallery (stored in `/public/projects/[slug]/`)
+ * - `projectStructure`: File/folder structure (for technical transparency)
+ * - `commands`: Setup instructions for running the project locally
+ *
+ * Icons:
+ * - Tech icons are stored as string identifiers.
+ * - Mapping (string → icon component) is handled in the UI layer.
+ * - Keeps this file fully serializable and framework-agnostic.
+ *
+ * Helpers:
+ * - `getProjectDetailsBySlug(slug)` → retrieves a project by slug
+ * - `getAllProjectSlugs()` → returns all slugs for static generation
+ *
+ * Usage:
+ * - Consumed by dynamic project pages (`/projects/[slug]`)
+ * - Used with Next.js `generateStaticParams` for pre-rendering
+ *
+ * Notes:
+ * - This file is purely declarative and should not contain business logic.
+ * - Keep descriptions detailed but readable — this is a case study, not just metadata.
+ * - Ensure consistency between summary (`projects.ts`) and detailed data.
  */
 
 import { ProjectDetails } from "@/types/projects"

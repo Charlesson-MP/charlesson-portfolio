@@ -1,40 +1,44 @@
 /**
- * Skill Types
+ * Skills Type Definitions
  *
- * Type definitions for the Skills domain used across the application.
- *
- * - Defines the structure of a single skill (Skill)
- * - Defines grouped skill categories (SkillCategory)
- * - Uses IconType (react-icons) for flexible and reusable icon components
+ * Defines all types related to the Skills domain in the portfolio.
  *
  * Purpose:
- * Provide strong typing and consistency between data and UI layers,
- * ensuring type safety and better developer experience.
+ * - Provide a structured and type-safe representation of skills and categories.
+ * - Ensure consistency between data (`/data/skills.ts`) and UI components.
+ * - Enable scalable and maintainable skill management.
+ *
+ * Data Modeling:
+ * - Skills are grouped into categories (e.g., Frontend, Performance, Tools).
+ * - Each skill includes a localized name and description.
+ * - Icons are represented as React components using `react-icons`.
+ *
+ * Shared Types:
+ * - Uses `LocalizedString` from `/types/common.ts` for multilingual support.
+ *
+ * Types:
+ * - `Skill`: Represents a single skill with name, description, and icon.
+ * - `SkillCategory`: Represents a group of related skills.
+ *
+ * Usage:
+ * - Consumed by the Skills section components.
+ * - Used by `/data/skills.ts` as the source of truth for content structure.
  *
  * Notes:
- * These types are shared between the data layer (/data) and
- * presentation layer (/components), promoting scalability
- * and easier maintenance.
+ * - Icons are stored as `IconType` to allow flexible rendering in the UI layer.
+ * - This file defines structure only — no data or UI logic should be included.
  */
 
 import { IconType } from "react-icons"
+import { LocalizedString } from "./common"
 
 export type Skill = {
-  name: {
-    pt: string
-    en: string
-  },
-  description: {
-    pt: string
-    en: string
-  },
+  name: LocalizedString
+  description: LocalizedString
   icon: IconType
 }
 
 export type SkillCategory = {
-  title: {
-    pt: string
-    en: string
-  }
+  title: LocalizedString
   skills: Skill[]
 }

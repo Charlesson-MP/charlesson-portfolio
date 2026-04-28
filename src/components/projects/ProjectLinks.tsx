@@ -1,17 +1,7 @@
 /**
- * Project Links Component (Client)
+ * ProjectLinks Component
  *
- * Renders action buttons for the project hero section:
- * a Live Demo link and a GitHub repository link.
- *
- * Responsibilities:
- * - Display primary CTA (Live Demo) and secondary CTA (GitHub)
- * - Open links in new tabs with security attributes
- * - Resolve localized button labels via useTranslation
- * - Maintain visual consistency with the portfolio's Button component
- *
- * Notes:
- * - Client Component because it uses useTranslation for localized labels.
+ * Action buttons for Live Demo and GitHub links in the project hero.
  */
 
 "use client"

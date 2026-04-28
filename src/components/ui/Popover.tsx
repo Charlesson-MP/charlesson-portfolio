@@ -1,24 +1,8 @@
 /**
  * Popover Component
  *
- * Reusable popover abstraction built on top of Radix UI primitives.
- * Provides accessible, click-triggered contextual information.
- *
- * Responsibilities:
- * - Handle click/tap interactions for desktop and mobile
- * - Provide smooth animations and consistent styling
- * - Ensure accessibility with focus management and ARIA roles
- *
- * Usage:
- * <Popover>
- *   <PopoverTrigger asChild>
- *     <button>Click me</button>
- *   </PopoverTrigger>
- *   <PopoverContent>Popover content</PopoverContent>
- * </Popover>
- *
- * Notes:
- * - Replaces Tooltip for scenarios requiring "click-to-open" behavior (e.g., Mobile UX)
+ * Click-triggered contextual overlay built on Radix UI primitives.
+ * Used where tap/click interaction is preferred over hover (e.g., mobile).
  */
 
 "use client";
