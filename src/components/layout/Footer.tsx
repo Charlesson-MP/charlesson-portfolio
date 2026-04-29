@@ -75,7 +75,7 @@ export function Footer() {
 
           {/* Column 2 - Navigation */}
           <div className="flex flex-col space-y-4 md:justify-self-center">
-            <h4 className="text-lg font-semibold text-foreground">{t.footer.navigationTitle}</h4>
+            <h4 className="text-lg font-semibold text-foreground text-center">{t.footer.navigationTitle}</h4>
             <nav className="flex flex-col space-y-3">
               {[
                 { name: { pt: "Sobre", en: "About" }, ariaLabel: { pt: "Ir para a seção Sobre", en: "Go to section About" }, id: "sobre" },
@@ -100,13 +100,13 @@ export function Footer() {
 
           {/* Column 3 - External Links */}
           <div className="flex flex-col space-y-4 md:justify-self-center">
-            <h4 className="text-lg font-semibold text-foreground">{t.footer.linksTitle}</h4>
+            <h4 className="text-lg font-semibold text-foreground text-center">{t.footer.linksTitle}</h4>
             <div className="flex flex-col space-y-3">
               <a
                 href="https://github.com/charlesson-mp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors duration-200 group w-fit"
+                className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors duration-200 group w-fit self-center"
                 aria-label={ariaLabel[language].github}
               >
                 <FaGithub className="w-5 h-5 group-hover:-translate-y-1 transition-transform duration-200" />
@@ -116,14 +116,14 @@ export function Footer() {
                 href="https://linkedin.com/in/charlesson-mendes-developer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors duration-200 group w-fit"
+                className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors duration-200 group w-fit self-center"
                 aria-label={ariaLabel[language].linkedin}
               >
                 <FaLinkedin className="w-5 h-5 group-hover:-translate-y-1 transition-transform duration-200" />
                 <span>LinkedIn</span>
               </a>
               <a
-                className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors duration-200 group text-left w-fit cursor-pointer"
+                className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors duration-200 group text-left w-fit cursor-pointer self-center"
                 aria-label={ariaLabel[language].downloadCV}
                 href={file}
                 rel="noopener noreferrer"
