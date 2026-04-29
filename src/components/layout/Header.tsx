@@ -28,13 +28,16 @@ export function Header() {
   const { language, toggleLanguage } = useLanguage();
   const t = useTranslation();
 
-  const navLinks = useMemo(() => [
-    { href: "/#sobre", label: t.header.about },
-    { href: "/#habilidades", label: t.header.skills },
-    { href: "/#projetos", label: t.header.projects },
-    { href: "/#experiencia", label: t.header.experience },
-    { href: "/#contato", label: t.header.contact },
-  ], [t]);
+  const navLinks = useMemo(
+    () => [
+      { href: "/#sobre", label: t.header.about },
+      { href: "/#habilidades", label: t.header.skills },
+      { href: "/#projetos", label: t.header.projects },
+      { href: "/#experiencia", label: t.header.experience },
+      { href: "/#contato", label: t.header.contact },
+    ],
+    [t],
+  );
 
   useEffect(() => {
     setMounted(true);
@@ -63,7 +66,7 @@ export function Header() {
           }
         });
       },
-      { rootMargin: "-50% 0px -50% 0px" }
+      { rootMargin: "-50% 0px -50% 0px" },
     );
 
     const hero = document.getElementById("inicio");
@@ -91,88 +94,91 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full  ${isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-transparent"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full  ${
+          isScrolled
+            ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
+            : "bg-transparent"
+        }`}
       >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav className="flex items-center justify-between h-16 lg:h-20 gap-4">
-          <Link
-            href="/#inicio"
-            className=" flex items-center text-lg font-semibold text-foreground hover:text-primary transition-colors shrink-0"
-          >
-            <Logo className="w-14 h-14 transition-transform duration-300 hover:scale-105" />
-            Charlesson
-          </Link>
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex items-center justify-between h-16 lg:h-20 gap-4">
+            <Link
+              href="/#inicio"
+              className=" flex items-center text-lg font-semibold text-foreground hover:text-primary transition-colors shrink-0"
+            >
+              <Logo className="w-14 h-14 transition-transform duration-300 hover:scale-105" />
+              Charlesson
+            </Link>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href.split("#")[1];
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`text-sm font-medium transition-colors ${isActive
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+            {/* Desktop Navigation */}
+            <ul className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.split("#")[1];
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`text-sm font-medium transition-colors ${
+                        isActive
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
                       }`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
 
-          {/* Controls */}
-          <div className="flex items-center gap-2">
-            {/* Language Toggle */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleLanguage}
-              className="hidden sm:flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
-              aria-label={t.header.toggleLanguage}
-            >
-              <Globe className="h-4 w-4" />
-              <span className="text-xs font-medium uppercase">{language}</span>
-            </Button>
+            {/* Controls */}
+            <div className="flex items-center gap-2">
+              {/* Language Toggle */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleLanguage}
+                className="hidden sm:flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
+                aria-label={t.header.toggleLanguage}
+              >
+                <Globe className="h-4 w-4" />
+                <span className="text-xs font-medium uppercase">
+                  {language}
+                </span>
+              </Button>
 
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="text-muted-foreground hover:text-foreground"
-              aria-label={
-                currentTheme === "dark"
-                  ? t.header.toggleTheme.light
-                  : t.header.toggleTheme.dark
-              }
-            >
-              {currentTheme === "dark" ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-            </Button>
+              {/* Theme Toggle */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                className="text-muted-foreground hover:text-foreground"
+                aria-label={
+                  currentTheme === "dark"
+                    ? t.header.toggleTheme.light
+                    : t.header.toggleTheme.dark
+                }
+              >
+                {currentTheme === "dark" ? (
+                  <Sun className="h-4 w-4" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )}
+              </Button>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="lg:hidden"
-              onClick={() => setIsMenuOpen(true)}
-              aria-label={t.header.openMenu}
-            >
-              <Menu className="h-5 w-5" />
-            </Button>
-          </div>
-        </nav>
-      </div>
-
+              {/* Mobile Menu Button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden"
+                onClick={() => setIsMenuOpen(true)}
+                aria-label={t.header.openMenu}
+              >
+                <Menu className="h-5 w-5" />
+              </Button>
+            </div>
+          </nav>
+        </div>
       </header>
 
       {/* Mobile Navigation Drawer */}
