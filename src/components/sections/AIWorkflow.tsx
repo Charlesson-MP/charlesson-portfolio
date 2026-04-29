@@ -7,6 +7,7 @@
  * Content is driven by structured data, ensuring consistency
  * and easy maintenance across the application.
  */
+"use client"
 
 import { aiUseCases } from "@/data/aiWorkFlow"
 import { useLanguage } from "@/hooks/use-language"
