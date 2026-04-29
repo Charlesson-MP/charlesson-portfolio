@@ -92,6 +92,6 @@ export const en = {
     linksTitle: "Connect",
     btnDownloadCVLabel: "Download CV",
     btnBackToTopLabel: "Back to top",
-    copyMessage: "© 2026 Charlesson Mendes — Built with Next.js & Tailwind"
+    copyMessage: "Built with Next.js & Tailwind"
   },
 }

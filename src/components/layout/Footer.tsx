@@ -20,6 +20,7 @@ import { Download, ArrowUp } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useTranslation } from "../../hooks/use-translation";
 import { useLanguage } from "@/hooks/use-language";
+import { Logo } from "../ui/Logo";
 
 export function Footer() {
   const scrollToTop = () => {
@@ -60,13 +61,14 @@ export function Footer() {
           
           {/* Column 1 - Branding */}
           <div className="flex flex-col space-y-4 md:justify-self-center">
-            <h3 className="text-2xl font-bold text-foreground tracking-tight">
+            <Logo className="w-20 h-20 self-center" />
+            <h3 className="text-2xl font-bold text-foreground tracking-tight text-center">
               Charlesson Mendes
             </h3>
-            <p className="text-foreground font-medium">
+            <p className="text-foreground font-medium text-center">
               {t.footer.activityArea}
             </p>
-            <p className="text-sm text-muted-foreground mt-2">
+            <p className="text-sm text-muted-foreground mt-2 text-center">
               {t.footer.question}
             </p>
           </div>
@@ -86,7 +88,7 @@ export function Footer() {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => scrollToSection(e, item.id)}
-                  className="w-fit text-muted-foreground hover:text-primary relative group transition-colors duration-200"
+                  className="w-fit text-muted-foreground hover:text-primary relative group transition-colors duration-200 self-center"
                   aria-label={item.ariaLabel[language]}
                 >
                   {item.name[language]}
@@ -138,7 +140,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border flex justify-center items-center">
           <p className="text-sm text-muted-foreground text-center">
-            {t.footer.copyMessage}
+            &copy; 2026 Charlesson Mendes — {t.footer.copyMessage}
           </p>
         </div>
       </div>

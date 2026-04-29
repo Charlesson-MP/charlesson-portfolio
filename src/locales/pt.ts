@@ -92,6 +92,6 @@ export const pt = {
     linksTitle: "Conectar",
     btnDownloadCVLabel: "Baixar CV",
     btnBackToTopLabel: "Voltar ao topo",
-    copyMessage: "© 2026 Charlesson Mendes — Desenvolvido com Next.js & Tailwind"
+    copyMessage: "Desenvolvido com Next.js & Tailwind"
   },
 }
