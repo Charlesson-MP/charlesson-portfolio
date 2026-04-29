@@ -36,6 +36,22 @@ export function Footer() {
 
   const { language } = useLanguage();
   const t = useTranslation();
+  const file = language === "pt" ? "/cv/charlesson-mendes-cv-pt.pdf" : "/cv/charlesson-mendes-resume-en.pdf";
+
+  const ariaLabel = {
+    pt: {
+      github: "Acessar meu GitHub",
+      linkedin: "Acessar meu LinkedIn",
+      downloadCV: "Baixar Currículo",
+      backToTop: "Voltar ao topo",
+    },
+    en: {
+      github: "Access my GitHub",
+      linkedin: "Access my LinkedIn",
+      downloadCV: "Download Resume",
+      backToTop: "Back to top",
+    }
+  }
 
   return (
     <footer className="w-full border-t border-border bg-background mt-auto">
@@ -43,7 +59,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
           
           {/* Column 1 - Branding */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 md:justify-self-center">
             <h3 className="text-2xl font-bold text-foreground tracking-tight">
               Charlesson Mendes
             </h3>
@@ -56,22 +72,22 @@ export function Footer() {
           </div>
 
           {/* Column 2 - Navigation */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 md:justify-self-center">
             <h4 className="text-lg font-semibold text-foreground">Navegação</h4>
             <nav className="flex flex-col space-y-3">
               {[
-                { name: { pt: "Sobre", en: "About" }, id: "sobre" },
-                { name: { pt: "Projetos", en: "Projects" }, id: "projetos" },
-                { name: { pt: "Habilidades", en: "Skills" }, id: "skills" },
-                { name: { pt: "Experiência", en: "Experience" }, id: "experience" },
-                { name: { pt: "Contato", en: "Contact" }, id: "contato" },
+                { name: { pt: "Sobre", en: "About" }, ariaLabel: { pt: "Ir para a seção Sobre", en: "Go to section About" }, id: "sobre" },
+                { name: { pt: "Projetos", en: "Projects" }, ariaLabel: { pt: "Ir para a seção Projetos", en: "Go to section Projects" }, id: "projetos" },
+                { name: { pt: "Habilidades", en: "Skills" }, ariaLabel: { pt: "Ir para a seção Habilidades", en: "Go to section Skills" }, id: "skills" },
+                { name: { pt: "Experiência", en: "Experience" }, ariaLabel: { pt: "Ir para a seção Experiência", en: "Go to section Experience" }, id: "experience" },
+                { name: { pt: "Contato", en: "Contact" }, ariaLabel: { pt: "Ir para a seção Contato", en: "Go to section Contact" }, id: "contato" },
               ].map((item) => (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => scrollToSection(e, item.id)}
                   className="w-fit text-muted-foreground hover:text-primary relative group transition-colors duration-200"
-                  aria-label={`Ir para a seção ${item.name}`}
+                  aria-label={item.ariaLabel[language]}
                 >
                   {item.name[language]}
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -81,7 +97,7 @@ export function Footer() {
           </div>
 
           {/* Column 3 - External Links */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 md:justify-self-center">
             <h4 className="text-lg font-semibold text-foreground">{t.footer.linksTitle}</h4>
             <div className="flex flex-col space-y-3">
               <a
@@ -89,7 +105,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors duration-200 group w-fit"
-                aria-label="Acessar meu GitHub"
+                aria-label={ariaLabel[language].github}
               >
                 <FaGithub className="w-5 h-5 group-hover:-translate-y-1 transition-transform duration-200" />
                 <span>GitHub</span>
@@ -99,19 +115,21 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors duration-200 group w-fit"
-                aria-label="Acessar meu LinkedIn"
+                aria-label={ariaLabel[language].linkedin}
               >
                 <FaLinkedin className="w-5 h-5 group-hover:-translate-y-1 transition-transform duration-200" />
                 <span>LinkedIn</span>
               </a>
-              <button
+              <a
                 className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors duration-200 group text-left w-fit cursor-pointer"
-                aria-label="Baixar Currículo"
-                onClick={() => alert("Download do CV simulado!")}
+                aria-label={ariaLabel[language].downloadCV}
+                href={file}
+                rel="noopener noreferrer"
+                download
               >
                 <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform duration-200" />
                 <span>{t.footer.btnDownloadCVLabel}</span>
-              </button>
+              </a>
             </div>
           </div>
 
@@ -125,7 +143,7 @@ export function Footer() {
           <button
             onClick={scrollToTop}
             className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 group cursor-pointer"
-            aria-label="Voltar ao topo"
+            aria-label={ariaLabel[language].backToTop}
           >
             <span>{t.footer.btnBackToTopLabel}</span>
             <div className="p-2 bg-muted rounded-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200">
