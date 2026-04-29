@@ -63,5 +63,12 @@ export const en = {
   experience: {
     title: "Experience",
     subtitle: "Professional background",
+  },
+  iaWorkFlow: {
+    title: "Productivity",
+    subtitle: "AI in My Workflow",
+    description: "I use artificial intelligence as a productivity tool, always responsibly and as a complement to my technical knowledge.",
+    title2: "Tool, Not Dependency",
+    description2: "AI is a powerful tool, but critical thinking, understanding the fundamentals, and problem-solving skills remain essential abilities that I continuously develop.",
   }
 }

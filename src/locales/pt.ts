@@ -63,5 +63,12 @@ export const pt = {
   experience: {
     title: "Experiência",
     subtitle: "Trajetória profissional",
-  }
+  },
+  iaWorkFlow: {
+    title: "Produtividade",
+    subtitle: "IA no Meu Workflow",
+    description: "Utilizo inteligência artificial como ferramenta de produtividade, sempre de forma responsável e como complemento ao meu conhecimento técnico.",
+    title2: "Ferramenta, Não Dependência",
+    description2: "IA é uma ferramenta poderosa, mas o pensamento crítico, a compreensão dos fundamentos e a capacidade de resolver problemas continuam sendo habilidades essenciais que desenvolvo constantemente."
+  },
 }
