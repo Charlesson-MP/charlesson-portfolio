@@ -28,7 +28,7 @@ export const en = {
     activityArea: "Frontend Developer",
     description: "Frontend Developer focused on building responsive and high-performance web applications using Next.js, React, Vue.js, TypeScript, and Tailwind CSS. Strong focus on performance, SEO, and user experience.",
     viewProjects: "View Projects",
-    contact: "Talk to me",
+    resumeText: "Download Resume",
   },
   about: {
     title: "About me",

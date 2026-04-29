@@ -19,9 +19,12 @@ import { ArrowRight, Mail } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { useTranslation } from "@/hooks/use-translation"
+import { useLanguage } from "@/hooks/use-language"
 
 export function Hero() {
   const t = useTranslation()
+  const { language } = useLanguage()
+  const file = language === "pt" ? "/cv/charlesson-mendes-cv-pt.pdf" : "/cv/charlesson-mendes-resume-en.pdf"
   return (
     <section id="inicio" className="min-h-screen flex items-center pt-24 pb-12 md:pt-32 md:pb-16">
       <div className="container mx-auto px-4 lg:px-8">
@@ -45,9 +48,14 @@ export function Hero() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="#contato">
-                  {t.hero.contact}
-                </Link>
+                <a
+                  href={file}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.hero.resumeText}
+                </a>
               </Button>
             </div>
 

@@ -28,7 +28,7 @@ export const pt = {
     activityArea: "Desenvolvedor Frontend",
     description: "Frontend Developer focado em construir aplicações web responsivas e de alta performance usando Next.js, React e Tailwind CSS. Forte atenção à performance, SEO e experiência do usuário.",
     viewProjects: "Ver Projetos",
-    contact: "Fale Comigo",
+    resumeText: "Baixar Currículo",
   },
   about: {
     title: "Sobre mim",
