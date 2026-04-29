@@ -85,4 +85,13 @@ export const pt = {
     subtitle: "Vamos conversar?",
     description: "Estou disponível para novas oportunidades. Se você tem um projeto interessante, ou uma vaga em aberto, ficarei feliz em conversar.",
   },
+  footer: {
+    activityArea: "Desenvolvedor Frontend",
+    question: "Vamos construir algo juntos?",
+    navigationTitle: "Navegação",
+    linksTitle: "Conectar",
+    btnDownloadCVLabel: "Baixar CV",
+    btnBackToTopLabel: "Voltar ao topo",
+    copyMessage: "© 2026 Charlesson Mendes — Desenvolvido com Next.js & Tailwind"
+  },
 }

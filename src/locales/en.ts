@@ -84,5 +84,14 @@ export const en = {
     title: "Contact",
     subtitle: "Let's talk?",
     description: "I'm available for new opportunities. If you have an interesting project or an open position, I'd be happy to chat.",
-  }
+  },
+  footer: {
+    activityArea: "Frontend Developer",
+    question: "Let's build something together?",
+    navigationTitle: "Navigation",
+    linksTitle: "Connect",
+    btnDownloadCVLabel: "Download CV",
+    btnBackToTopLabel: "Back to top",
+    copyMessage: "© 2026 Charlesson Mendes — Built with Next.js & Tailwind"
+  },
 }

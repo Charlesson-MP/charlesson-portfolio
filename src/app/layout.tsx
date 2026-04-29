@@ -12,6 +12,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { LanguageProvider } from "@/components/providers/language-provider";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,7 +52,7 @@ export default function RootLayout({
           <LanguageProvider>
             <Header />
             <main className="flex-1">{children}</main>
-            {/* Footer will be added here later */}
+            <Footer />
           </LanguageProvider>
         </ThemeProvider>
       </body>
