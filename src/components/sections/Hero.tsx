@@ -89,15 +89,20 @@ export function Hero() {
           </div>
 
           <div className="flex-1 flex justify-center lg:justify-end w-full">
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-muted/30 shadow-2xl transition-transform duration-500 hover:-translate-y-2">
-              <Image
-                src="/images/Charlesson.jpg"
-                alt="Charlesson Mendes Pereira"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, (max-width: 1280px) 320px, 384px"
-              />
+            <div className="relative">
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-primary/40 rounded-full blur-[60px] md:blur-[80px] pointer-events-none" />
+
+              <div className="relative z-10 w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-muted/30 shadow-2xl transition-transform duration-500 hover:-translate-y-2">
+                <Image
+                  src="/images/Charlesson.jpg"
+                  alt="Charlesson Mendes Pereira"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, (max-width: 1280px) 320px, 384px"
+                />
+              </div>
             </div>
           </div>
         </div>
