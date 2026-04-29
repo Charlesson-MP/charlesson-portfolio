@@ -1,3 +1,16 @@
+/**
+ * Experience Section
+ *
+ * Displays professional experience in a structured layout,
+ * presenting roles, companies, and responsibilities.
+ *
+ * Data is sourced from a centralized structure, ensuring
+ * consistency, scalability, and easy maintenance.
+ *
+ * Supports responsive layouts and integrates with the
+ * application's i18n system for multilingual content.
+ */
+
 "use client"
 
 import { experiences } from '@/data/experience'

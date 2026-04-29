@@ -1,3 +1,21 @@
+/**
+ * Experience Data
+ *
+ * Centralized data source for all professional experiences displayed
+ * in the Experience section of the portfolio.
+ *
+ * - Each entry represents a role with company, period, and description
+ * - Content is localized (pt/en) for internationalization support
+ *
+ * Purpose:
+ * Separate content from presentation, allowing components to remain
+ * clean, reusable, and focused only on rendering logic.
+ *
+ * Notes:
+ * - Structured to support both timeline and card-based layouts
+ * - Easy to extend with additional fields (e.g., links, technologies)
+ */
+
 import { Experience } from "@/types/experience";
 
 export const experiences: Experience[] = [
