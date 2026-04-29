@@ -73,7 +73,7 @@ export function Footer() {
 
           {/* Column 2 - Navigation */}
           <div className="flex flex-col space-y-4 md:justify-self-center">
-            <h4 className="text-lg font-semibold text-foreground">Navegação</h4>
+            <h4 className="text-lg font-semibold text-foreground">{t.footer.navigationTitle}</h4>
             <nav className="flex flex-col space-y-3">
               {[
                 { name: { pt: "Sobre", en: "About" }, ariaLabel: { pt: "Ir para a seção Sobre", en: "Go to section About" }, id: "sobre" },
@@ -136,20 +136,10 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm text-muted-foreground text-center md:text-left">
+        <div className="mt-12 pt-8 border-t border-border flex justify-center items-center">
+          <p className="text-sm text-muted-foreground text-center">
             {t.footer.copyMessage}
           </p>
-          <button
-            onClick={scrollToTop}
-            className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 group cursor-pointer"
-            aria-label={ariaLabel[language].backToTop}
-          >
-            <span>{t.footer.btnBackToTopLabel}</span>
-            <div className="p-2 bg-muted rounded-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-200">
-              <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-200" />
-            </div>
-          </button>
         </div>
       </div>
     </footer>
