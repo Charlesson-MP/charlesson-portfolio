@@ -13,6 +13,7 @@ import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
+import { Experience } from "@/components/sections/Experience";
 import { HowIWork } from "@/components/sections/HowIWork";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <Experience />
       <HowIWork />
     </main>
   );

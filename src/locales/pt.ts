@@ -59,5 +59,9 @@ export const pt = {
     title: "Metodologia",
     subtitle: "Como eu trabalho",
     description: "Minha abordagem para desenvolver soluções eficientes, escaláveis e bem estruturadas.",
+  },
+  experience: {
+    title: "Experiência",
+    subtitle: "Trajetória profissional",
   }
 }
