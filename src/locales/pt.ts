@@ -1,3 +1,12 @@
+/**
+ * Portuguese Locale (pt-BR)
+ *
+ * Contains all static UI text in Portuguese used across the application.
+ *
+ * Organized by sections (e.g., hero, about, projects) to keep content
+ * structured and easy to maintain.
+ */
+
 export const pt = {
   header: {
     about: "Sobre",
@@ -70,5 +79,10 @@ export const pt = {
     description: "Utilizo inteligência artificial como ferramenta de produtividade, sempre de forma responsável e como complemento ao meu conhecimento técnico.",
     title2: "Ferramenta, Não Dependência",
     description2: "IA é uma ferramenta poderosa, mas o pensamento crítico, a compreensão dos fundamentos e a capacidade de resolver problemas continuam sendo habilidades essenciais que desenvolvo constantemente."
+  },
+  contact: {
+    title: "Contato",
+    subtitle: "Vamos conversar?",
+    description: "Estou disponível para novas oportunidades. Se você tem um projeto interessante, ou uma vaga em aberto, ficarei feliz em conversar.",
   },
 }

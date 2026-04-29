@@ -16,6 +16,7 @@ import { Projects } from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
 import { HowIWork } from "@/components/sections/HowIWork";
 import { AIWorkflow } from "@/components/sections/AIWorkflow";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
       <Experience />
       <HowIWork />
       <AIWorkflow />
+      <Contact />
     </main>
   );
 }

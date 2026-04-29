@@ -1,3 +1,12 @@
+/**
+ * English Locale (en)
+ *
+ * Contains all static UI text in English used across the application.
+ *
+ * Mirrors the structure of the Portuguese locale file to ensure
+ * consistency between languages.
+ */
+
 export const en = {
   header: {
     about: "About",
@@ -70,5 +79,10 @@ export const en = {
     description: "I use artificial intelligence as a productivity tool, always responsibly and as a complement to my technical knowledge.",
     title2: "Tool, Not Dependency",
     description2: "AI is a powerful tool, but critical thinking, understanding the fundamentals, and problem-solving skills remain essential abilities that I continuously develop.",
+  },
+  contact: {
+    title: "Contact",
+    subtitle: "Let's talk?",
+    description: "I'm available for new opportunities. If you have an interesting project or an open position, I'd be happy to chat.",
   }
 }
