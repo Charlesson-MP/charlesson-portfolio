@@ -27,7 +27,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contato" className="py-20 lg:py-32">
+    <section id="contato" className="py-12 md:py-16">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-2xl mx-auto text-center mb-12">
           <h2 className="text-sm font-medium text-primary uppercase tracking-wide mb-4">

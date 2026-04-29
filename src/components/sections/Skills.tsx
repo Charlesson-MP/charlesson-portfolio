@@ -52,7 +52,7 @@ export function Skills() {
   const t = useTranslation()
 
   return (
-    <section id="habilidades" className="py-16 md:py-24 bg-muted/30">
+    <section id="habilidades" className="py-12 md:py-16 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-5xl mb-12">
           <h2 className="text-sm font-medium text-primary uppercase tracking-wide mb-4">

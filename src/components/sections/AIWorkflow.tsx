@@ -19,7 +19,7 @@ export function AIWorkflow() {
   const t = useTranslation()
 
   return (
-    <section id="ia-workflow" className="py-20 lg:py-32">
+    <section id="ia-workflow" className="py-12 md:py-16">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-sm font-medium text-primary uppercase tracking-wide mb-4 text-center">

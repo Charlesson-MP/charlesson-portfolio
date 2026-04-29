@@ -21,7 +21,7 @@ export function HowIWork() {
   }
 
   return (
-    <section id="como-trabalho" className="py-20 lg:py-32 bg-muted/30">
+    <section id="como-trabalho" className="py-12 md:py-16 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16 lg:mb-20">
