@@ -21,7 +21,7 @@ import { Experience } from "@/types/experience";
 export const experiences: Experience[] = [
   {
     title: { pt: "Desenvolvedor Frontend", en: "Frontend Developer" },
-    company: "",
+    company: "Freelancer",
     period: "2024 — Atualmente",
     description: {
       pt: "Desenvolvimento de interfaces web modernas, responsivas e orientadas à performance utilizando React, Next.js e Vue.js, com Tailwind CSS e TypeScript. Experiência na criação de landing pages, e-commerces e aplicações com consumo de APIs, aplicando boas práticas de componentização, organização de código, documentação técnica e responsividade. Familiaridade com otimização de performance, SEO técnico e versionamento com Git, atuando em projetos individuais e colaborativos. Atualmente, direciono meus estudos para o desenvolvimento de ferramentas próprias com potencial de monetização.",
