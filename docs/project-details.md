@@ -32,15 +32,17 @@ Both share a `slug` field for linkage. This separation keeps each file focused a
 
 ## Component Hierarchy
 
-| Component              | Type     | Purpose                                |
-|------------------------|----------|----------------------------------------|
-| `ProjectHero`          | Server   | Title, subtitle, gallery, and links    |
-| `ProjectGallery`       | Client   | Interactive image carousel             |
-| `ProjectLinks`         | Server   | Live Demo + GitHub buttons             |
-| `SectionBlock`         | Server   | Reusable section wrapper (×9)          |
-| `TechStack`            | Server   | Tech cards with icons                  |
-| `FeatureList`          | Server   | Numbered feature cards                 |
-| `ProjectStructureBlock`| Server   | File tree display                      |
+| Component                | Type     | Purpose                                     |
+|--------------------------|----------|---------------------------------------------|
+| `ProjectDetailsContent`  | Client   | Main orchestrator for all detail sections   |
+| `ProjectHero`            | Client   | Title, subtitle, gallery, and links         |
+| `ProjectGallery`         | Client   | Interactive image carousel                  |
+| `ProjectLinks`           | Client   | Live Demo + GitHub buttons                  |
+| `ProjectTOC`             | Client   | Sticky Table of Contents navigation         |
+| `SectionBlock`           | Server   | Reusable section wrapper                    |
+| `TechStack`              | Client   | Tech cards with icons                       |
+| `FeatureList`            | Client   | Numbered feature cards                      |
+| `ProjectStructureBlock`  | Server   | File tree display                           |
 
 ## Adding a New Project
 

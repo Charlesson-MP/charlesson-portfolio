@@ -14,31 +14,70 @@ src/
 │           └── not-found.tsx
 │
 ├── components/             # Reusable components
-│   ├── ui/                 # Base design system (Button, Card, Badge...)
-│   ├── layout/             # Structural (Header, Footer)
-│   │   └── Header.tsx
-│   ├── sections/           # Home page sections (Hero, About, Skills, Projects)
-│   └── projects/           # Project detail page components
-│       ├── ProjectHero.tsx
-│       ├── ProjectGallery.tsx
-│       ├── ProjectLinks.tsx
-│       ├── TechStack.tsx
-│       ├── SectionBlock.tsx
-│       ├── FeatureList.tsx
-│       └── ProjectStructureBlock.tsx
+│   ├── ui/                 # Base design system
+│   │   ├── Badge.tsx
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── Popover.tsx
+│   │   ├── Tooltip.tsx
+│   │   ├── Logo.tsx
+│   │   ├── BackToTop.tsx
+│   │   ├── DesktopStepCard.tsx
+│   │   └── MobileStepCard.tsx
+│   ├── layout/             # Structural (Header, Footer, Drawer)
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   └── MobileDrawer.tsx
+│   ├── sections/           # Home page sections
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Skills.tsx
+│   │   ├── Projects.tsx
+│   │   ├── HowIWork.tsx
+│   │   ├── Experience.tsx
+│   │   ├── AIWorkflow.tsx
+│   │   └── Contact.tsx
+│   ├── projects/           # Project detail page components
+│   │   ├── ProjectDetailsContent.tsx
+│   │   ├── ProjectHero.tsx
+│   │   ├── ProjectGallery.tsx
+│   │   ├── ProjectLinks.tsx
+│   │   ├── ProjectTOC.tsx
+│   │   ├── TechStack.tsx
+│   │   ├── SectionBlock.tsx
+│   │   ├── FeatureList.tsx
+│   │   └── ProjectStructureBlock.tsx
+│   └── providers/          # Context providers
+│       ├── language-provider.tsx
+│       └── theme-provider.tsx
 │
 ├── data/                   # Static data sources
 │   ├── projects.ts         # Summary data (listing cards)
 │   ├── project-details.ts  # Full case study data (detail pages)
-│   └── skills.ts
+│   ├── skills.ts
+│   ├── experience.ts
+│   ├── process.ts
+│   └── aiWorkFlow.ts
 │
 ├── hooks/                  # Custom hooks
+│   ├── use-language.ts
+│   └── use-translation.ts
 │
 ├── lib/                    # Helpers, utils, configs
+│   └── utils.ts
+│
+├── locales/                # Internationalization (i18n)
+│   ├── pt.ts               # Portuguese translations
+│   ├── en.ts               # English translations
+│   └── index.ts            # Barrel file and derived types
 │
 └── types/                  # Global types (TypeScript)
-    ├── projects.ts         # Project, ProjectDetails, TechItem, Feature, Command
-    └── skills.ts
+    ├── common.ts           # LocalizedString
+    ├── projects.ts         # Project, ProjectDetails, TechItem, Feature
+    ├── skills.ts
+    ├── experience.ts
+    ├── process.ts
+    └── aiWorkFlow.ts
 ```
 
 ### Separation of Concerns
@@ -50,6 +89,7 @@ The project follows a clear separation of responsibilities:
 - `data/` → Static data (summary + detail), separate from presentation
 - `hooks/` → Reusable logic
 - `lib/` → Utility functions and helpers
+- `locales/` → Internationalization (i18n) translation files
 - `types/` → TypeScript type definitions
 
 ## Technical Decisions
