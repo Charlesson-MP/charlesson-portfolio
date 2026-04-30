@@ -15,7 +15,6 @@ import {
   BookOpen,
   Rocket,
   FolderTree,
-  Terminal,
   Layers,
   Star,
 } from "lucide-react"
@@ -25,8 +24,8 @@ import { ProjectHero } from "@/components/projects/ProjectHero"
 import { SectionBlock } from "@/components/projects/SectionBlock"
 import { TechStack } from "@/components/projects/TechStack"
 import { FeatureList } from "@/components/projects/FeatureList"
-import { CopyCommandBlock } from "@/components/projects/CopyCommandBlock"
 import { ProjectStructureBlock } from "@/components/projects/ProjectStructureBlock"
+import { ProjectTOC } from "@/components/projects/ProjectTOC"
 import { useLanguage } from "@/hooks/use-language"
 import { useTranslation } from "@/hooks/use-translation"
 
@@ -38,17 +37,33 @@ export function ProjectDetailsContent({ project }: ProjectDetailsContentProps) {
   const { language } = useLanguage()
   const t = useTranslation()
 
+  const sections = [
+    { id: "problem", title: t.projects.sections.problem },
+    { id: "solution", title: t.projects.sections.solution },
+    { id: "technologies", title: t.projects.sections.technologies },
+    { id: "features", title: t.projects.sections.features },
+    { id: "challenges", title: t.projects.sections.challenges },
+    { id: "learnings", title: t.projects.sections.learnings },
+    { id: "improvements", title: t.projects.sections.improvements },
+    { id: "structure", title: t.projects.sections.projectStructure },
+  ]
+
   return (
     <article className="min-h-screen">
       {/* Hero Section */}
       <ProjectHero project={project} />
 
       {/* Content Sections */}
-      <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
-        {/* Divider */}
-        <hr className="border-border/50" />
+      <div className="container mx-auto px-4 lg:px-8 max-w-6xl relative pb-12">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:gap-12">
+          
+          <ProjectTOC sections={sections} />
 
-        {/* Problem */}
+          <div className="flex-1 min-w-0">
+            {/* Divider */}
+            <hr className="border-border/50 hidden lg:block mb-12" />
+
+            {/* Problem */}
         <SectionBlock title={t.projects.sections.problem} icon={Target} id="problem">
           <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
             {project.problem[language]}
@@ -139,12 +154,7 @@ export function ProjectDetailsContent({ project }: ProjectDetailsContentProps) {
           <ProjectStructureBlock structure={project.projectStructure} />
         </SectionBlock>
 
-        <hr className="border-border/50" />
 
-        {/* How to Run */}
-        <SectionBlock title={t.projects.sections.howToRun} icon={Terminal} id="how-to-run">
-          <CopyCommandBlock commands={project.commands} />
-        </SectionBlock>
 
         {/* Bottom Navigation */}
         <div className="flex justify-center py-12 md:py-16">
@@ -155,6 +165,8 @@ export function ProjectDetailsContent({ project }: ProjectDetailsContentProps) {
             <Zap className="w-4 h-4 text-primary" />
             <span>{t.projects.CTATitleProjectDetails}</span>
           </a>
+        </div>
+          </div>
         </div>
       </div>
     </article>
