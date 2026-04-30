@@ -10,7 +10,6 @@
 import {
   createContext,
   useState,
-  useEffect,
   useCallback,
   type ReactNode,
 } from "react"
@@ -18,7 +17,6 @@ import {
 import type { Language } from "@/locales"
 
 const STORAGE_KEY = "language"
-const DEFAULT_LANGUAGE: Language = "pt"
 
 export type LanguageContextValue = {
   language: Language
