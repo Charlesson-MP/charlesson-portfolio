@@ -107,7 +107,7 @@ export function Header() {
               className=" flex items-center text-lg font-semibold text-foreground hover:text-primary transition-colors shrink-0"
             >
               <Logo className="w-14 h-14 transition-transform duration-300 hover:scale-105 mr-2" />
-              Charlesson
+              Charlesson-MP
             </Link>
 
             {/* Desktop Navigation */}
