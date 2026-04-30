@@ -103,7 +103,7 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-foreground text-center">{t.footer.linksTitle}</h4>
             <div className="flex flex-col space-y-3">
               <a
-                href="https://github.com/charlesson-mp"
+                href="https://github.com/Charlesson-MP"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors duration-200 group w-fit self-center"

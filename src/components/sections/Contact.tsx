@@ -120,7 +120,7 @@ export function Contact() {
 
           {/* GitHub Card */}
           <a
-            href="https://github.com"
+            href="https://github.com/Charlesson-MP"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-6 py-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group h-full"

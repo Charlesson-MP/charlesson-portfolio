@@ -61,7 +61,7 @@ export function Hero() {
 
             <div className="flex items-center gap-4">
               <a
-                href="https://github.com"
+                href="https://github.com/Charlesson-MP"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-muted rounded-lg"
