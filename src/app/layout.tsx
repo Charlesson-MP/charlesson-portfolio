@@ -1,4 +1,6 @@
 /**
+ * Root Layout
+ *
  * Root layout of the application.
  *
  * Responsibilities:

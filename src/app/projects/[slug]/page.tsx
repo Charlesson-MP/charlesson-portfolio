@@ -1,5 +1,7 @@
 /**
- * Project Details Page (Server Component)
+ * Project Details Page
+ *
+ * Server Component responsible for rendering the full project detail view for a given slug.
  *
  * Entry point for /projects/[slug] routes.
  * This file is a pure Server Component — it handles:

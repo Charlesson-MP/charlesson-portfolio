@@ -1,4 +1,6 @@
 /**
+ * Home Page
+ *
  * Home page of the portfolio.
  *
  * Responsibilities:

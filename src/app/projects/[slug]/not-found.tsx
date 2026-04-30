@@ -1,5 +1,7 @@
 /**
- * Project Not Found Page
+ * Not Found Page
+ *
+ * Project not found page rendered when a project slug does not match any entry.
  *
  * Custom 404 UI displayed when a user navigates to /projects/[slug]
  * with an invalid or non-existent slug.

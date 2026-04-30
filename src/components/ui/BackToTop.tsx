@@ -1,3 +1,9 @@
+/**
+ * BackToTop Component
+ *
+ * Floating action button that allows the user to smoothly scroll back to the top of the page. Becomes visible after scrolling 400px down.
+ */
+
 "use client"
 
 import { useState, useEffect } from "react"
