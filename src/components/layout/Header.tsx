@@ -17,6 +17,7 @@ import { Logo } from "@/components/ui/Logo";
 import { useLanguage } from "@/hooks/use-language";
 import { useTranslation } from "@/hooks/use-translation";
 import { MobileDrawer } from "@/components/layout/MobileDrawer";
+import { usePathname } from "next/navigation";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,6 +28,7 @@ export function Header() {
 
   const { language, toggleLanguage } = useLanguage();
   const t = useTranslation();
+  const pathname = usePathname();
 
   const navLinks = useMemo(
     () => [
@@ -85,7 +87,7 @@ export function Header() {
     return () => {
       observer.disconnect();
     };
-  }, [isMenuOpen, navLinks]);
+  }, [isMenuOpen, navLinks, pathname]);
 
   const toggleTheme = () => {
     setTheme(currentTheme === "dark" ? "light" : "dark");
