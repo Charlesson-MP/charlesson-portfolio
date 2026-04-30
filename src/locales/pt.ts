@@ -26,7 +26,7 @@ export const pt = {
   },
   hero: {
     activityArea: "Desenvolvedor Frontend",
-    description: "Frontend Developer focado em construir aplicações web responsivas e de alta performance usando Next.js, React e Tailwind CSS. Forte atenção à performance, SEO e experiência do usuário.",
+    description: "Comecei na tecnologia pelo suporte e pelo design, o que me deu uma visão diferente: entendo tanto a máquina quanto o usuário. Hoje construo interfaces com Next.js, React e Tailwind CSS que são rápidas, acessíveis e fáceis de manter — do primeiro commit à entrega.",
     viewProjects: "Ver Projetos",
     resumeText: "Baixar Currículo",
   },

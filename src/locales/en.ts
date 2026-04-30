@@ -26,7 +26,7 @@ export const en = {
   },
   hero: {
     activityArea: "Frontend Developer",
-    description: "Frontend Developer focused on building responsive and high-performance web applications using Next.js, React, Vue.js, TypeScript, and Tailwind CSS. Strong focus on performance, SEO, and user experience.",
+    description: "I started in tech through IT support and graphic design — which gave me a different perspective: I understand both the machine and the user. Today I build interfaces with Next.js, React and Tailwind CSS that are fast, accessible and easy to maintain — from the first commit to delivery.",
     viewProjects: "View Projects",
     resumeText: "Download Resume",
   },
