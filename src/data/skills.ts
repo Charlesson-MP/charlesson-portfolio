@@ -36,14 +36,14 @@
 
 import { SkillCategory } from "@/types/skills"
 import {FaReact, FaVuejs, FaGitAlt, FaGithub, FaHtml5, FaCss3Alt, FaJs, FaSearch, FaImage } from "react-icons/fa"
-import { BsFillLightningChargeFill } from "react-icons/bs";
-import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiTypescript, SiVite } from "react-icons/si";
-import { MdSpeed } from "react-icons/md";
-import { IoLogoVercel } from "react-icons/io5";
-import { VscVscode } from "react-icons/vsc";
+import { BsFillLightningChargeFill } from "react-icons/bs"
+import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri"
+import { SiTypescript, SiVite } from "react-icons/si"
+import { MdSpeed } from "react-icons/md"
+import { IoLogoVercel } from "react-icons/io5"
+import { VscVscode } from "react-icons/vsc"
 
-const skillCategories: SkillCategory[] = [
+export const skillCategories: SkillCategory[] = [
   {
     title: {
       pt: "Frontend",
@@ -256,5 +256,3 @@ const skillCategories: SkillCategory[] = [
     ],
   },
 ]
-
-export { skillCategories }

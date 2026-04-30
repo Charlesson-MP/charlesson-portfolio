@@ -64,99 +64,97 @@ export function ProjectDetailsContent({ project }: ProjectDetailsContentProps) {
             <hr className="border-border/50 hidden lg:block mb-12" />
 
             {/* Problem */}
-        <SectionBlock title={t.projects.sections.problem} icon={Target} id="problem">
-          <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-            {project.problem[language]}
-          </p>
-        </SectionBlock>
+            <SectionBlock title={t.projects.sections.problem} icon={Target} id="problem">
+              <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+                {project.problem[language]}
+              </p>
+            </SectionBlock>
 
-        <hr className="border-border/50" />
+            <hr className="border-border/50" />
 
-        {/* Solution */}
-        <SectionBlock title={t.projects.sections.solution} icon={Lightbulb} id="solution">
-          <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-            {project.solution[language]}
-          </p>
-        </SectionBlock>
+            {/* Solution */}
+            <SectionBlock title={t.projects.sections.solution} icon={Lightbulb} id="solution">
+              <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+                {project.solution[language]}
+              </p>
+            </SectionBlock>
 
-        <hr className="border-border/50" />
+            <hr className="border-border/50" />
 
-        {/* Technologies */}
-        <SectionBlock title={t.projects.sections.technologies} icon={Layers} id="technologies">
-          <TechStack items={project.tech} />
-        </SectionBlock>
+            {/* Technologies */}
+            <SectionBlock title={t.projects.sections.technologies} icon={Layers} id="technologies">
+              <TechStack items={project.tech} />
+            </SectionBlock>
 
-        <hr className="border-border/50" />
+            <hr className="border-border/50" />
 
-        {/* Features */}
-        <SectionBlock title={t.projects.sections.features} icon={Star} id="features">
-          <FeatureList features={project.features} />
-        </SectionBlock>
+            {/* Features */}
+            <SectionBlock title={t.projects.sections.features} icon={Star} id="features">
+              <FeatureList features={project.features} />
+            </SectionBlock>
 
-        <hr className="border-border/50" />
+            <hr className="border-border/50" />
 
-        {/* Challenges */}
-        <SectionBlock title={t.projects.sections.challenges} icon={AlertTriangle} id="challenges">
-          <ul className="space-y-4">
-            {project.challenges[language].map((challenge, index) => (
-              <li key={index} className="flex gap-3">
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-destructive/10 text-destructive text-xs font-bold shrink-0 mt-0.5">
-                  {index + 1}
-                </span>
-                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                  {challenge}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </SectionBlock>
+            {/* Challenges */}
+            <SectionBlock title={t.projects.sections.challenges} icon={AlertTriangle} id="challenges">
+              <ul className="space-y-4">
+                {project.challenges[language].map((challenge, index) => (
+                  <li key={index} className="flex gap-3">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-destructive/10 text-destructive text-xs font-bold shrink-0 mt-0.5">
+                      {index + 1}
+                    </span>
+                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                      {challenge}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </SectionBlock>
 
-        <hr className="border-border/50" />
+            <hr className="border-border/50" />
 
-        {/* Learnings */}
-        <SectionBlock title={t.projects.sections.learnings} icon={BookOpen} id="learnings">
-          <ul className="space-y-4">
-            {project.learnings[language].map((learning, index) => (
-              <li key={index} className="flex gap-3">
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold shrink-0 mt-0.5">
-                  ✓
-                </span>
-                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                  {learning}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </SectionBlock>
+            {/* Learnings */}
+            <SectionBlock title={t.projects.sections.learnings} icon={BookOpen} id="learnings">
+              <ul className="space-y-4">
+                {project.learnings[language].map((learning, index) => (
+                  <li key={index} className="flex gap-3">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold shrink-0 mt-0.5">
+                      ✓
+                    </span>
+                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                      {learning}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </SectionBlock>
 
-        <hr className="border-border/50" />
+            <hr className="border-border/50" />
 
-        {/* Future Improvements */}
-        <SectionBlock title={t.projects.sections.improvements} icon={Rocket} id="improvements">
-          <ul className="space-y-4">
-            {project.improvements[language].map((improvement, index) => (
-              <li key={index} className="flex gap-3">
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-accent/20 text-accent-foreground text-xs font-bold shrink-0 mt-0.5">
-                  →
-                </span>
-                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                  {improvement}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </SectionBlock>
+            {/* Future Improvements */}
+            <SectionBlock title={t.projects.sections.improvements} icon={Rocket} id="improvements">
+              <ul className="space-y-4">
+                {project.improvements[language].map((improvement, index) => (
+                  <li key={index} className="flex gap-3">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-accent/20 text-accent-foreground text-xs font-bold shrink-0 mt-0.5">
+                      →
+                    </span>
+                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                      {improvement}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </SectionBlock>
 
-        <hr className="border-border/50" />
+            <hr className="border-border/50" />
 
-        {/* Project Structure */}
-        <SectionBlock title={t.projects.sections.projectStructure} icon={FolderTree} id="structure">
-          <ProjectStructureBlock structure={project.projectStructure} />
-        </SectionBlock>
+            {/* Project Structure */}
+            <SectionBlock title={t.projects.sections.projectStructure} icon={FolderTree} id="structure">
+              <ProjectStructureBlock structure={project.projectStructure} />
+            </SectionBlock>
 
-
-
-        {/* Bottom Navigation */}
+            {/* Bottom Navigation */}
         <div className="flex justify-center py-12 md:py-16">
           <a
             href="/#projetos"

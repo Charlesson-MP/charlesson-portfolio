@@ -1,37 +1,37 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react";
-import { useLanguage } from "@/hooks/use-language";
+import { useState, useEffect } from "react"
+import { ArrowUp } from "lucide-react"
+import { useLanguage } from "@/hooks/use-language"
 
 export function BackToTop() {
-  const [isVisible, setIsVisible] = useState(false);
-  const { language } = useLanguage();
+  const [isVisible, setIsVisible] = useState(false)
+  const { language } = useLanguage()
 
   const ariaLabel = {
     pt: "Voltar ao topo",
     en: "Back to top",
-  };
+  }
 
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 400) {
-        setIsVisible(true);
+        setIsVisible(true)
       } else {
-        setIsVisible(false);
+        setIsVisible(false)
       }
-    };
+    }
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+    window.addEventListener("scroll", toggleVisibility)
+    return () => window.removeEventListener("scroll", toggleVisibility)
+  }, [])
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    });
-  };
+    })
+  }
 
   return (
     <button
@@ -43,5 +43,5 @@ export function BackToTop() {
     >
       <ArrowUp className="w-5 h-5" />
     </button>
-  );
+  )
 }

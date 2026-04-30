@@ -16,7 +16,7 @@
  * - Easy to extend with additional fields (e.g., links, technologies)
  */
 
-import { Experience } from "@/types/experience";
+import { Experience } from "@/types/experience"
 
 export const experiences: Experience[] = [
   {
@@ -61,4 +61,4 @@ export const experiences: Experience[] = [
         "Performed graphic design and editing using CorelDRAW, including image vectorization and development of personalized artwork for clients. Experience focused on visual communication, attention to detail and adaptation of graphic identity to different demands.",
     },
   },
-];
+]

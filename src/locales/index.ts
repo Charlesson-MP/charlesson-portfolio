@@ -10,15 +10,15 @@
  * match the shape of the default locale (`pt`).
  */
 
-import { pt } from "./pt";
-import { en } from "./en";
+import { pt } from "./pt"
+import { en } from "./en"
 
-export const locales = { pt, en } as const;
+export const locales = { pt, en } as const
 
 /** Supported language codes — derived from the locales map */
-export type Language = keyof typeof locales;
+export type Language = keyof typeof locales
 
 /** Shape of a translation object — derived from the default locale */
-export type Translations = typeof pt;
+export type Translations = typeof pt
 
-export { pt, en };
+export { pt, en }

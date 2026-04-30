@@ -12,20 +12,20 @@
  * Throws an error if used outside the provider tree.
  */
 
-"use client";
+"use client"
 
-import { useContext } from "react";
-import { LanguageContext } from "@/components/providers/language-provider";
+import { useContext } from "react"
+import { LanguageContext } from "@/components/providers/language-provider"
 
 export function useLanguage() {
-  const context = useContext(LanguageContext);
+  const context = useContext(LanguageContext)
 
   if (!context) {
     throw new Error(
       "useLanguage must be used within a <LanguageProvider>. " +
         "Wrap your component tree with <LanguageProvider> in layout.tsx."
-    );
+    )
   }
 
-  return context;
+  return context
 }

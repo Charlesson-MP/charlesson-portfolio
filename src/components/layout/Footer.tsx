@@ -1,43 +1,35 @@
 /**
  * Footer Component
  *
- * Responsável por exibir o rodapé do portfólio com:
- * - Navegação interna (scroll entre seções)
- * - Informações de branding
- * - Links externos (GitHub, LinkedIn, CV)
- * - Mensagem de copyright
- * - Botão de voltar ao topo
- *
- * Suporte a internacionalização (i18n) utilizando os arquivos pt.ts e en.ts.
- *
- * Stack: Next.js + Tailwind CSS + TypeScript
+ * Site-wide footer with branding, internal navigation,
+ * external links (GitHub, LinkedIn, CV), and copyright.
  */
 
-"use client";
+"use client"
 
-import React from "react";
-import { Download, ArrowUp } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { useTranslation } from "../../hooks/use-translation";
-import { useLanguage } from "@/hooks/use-language";
-import { Logo } from "../ui/Logo";
+import React from "react"
+import { Download } from "lucide-react"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
+import { useTranslation } from "@/hooks/use-translation"
+import { useLanguage } from "@/hooks/use-language"
+import { Logo } from "@/components/ui/Logo"
 
 export function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    e.preventDefault();
-    const element = document.getElementById(sectionId);
+    e.preventDefault()
+    const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth" })
     }
-  };
+  }
 
-  const { language } = useLanguage();
-  const t = useTranslation();
-  const file = language === "pt" ? "/cv/charlesson-mendes-cv-pt.pdf" : "/cv/charlesson-mendes-resume-en.pdf";
+  const { language } = useLanguage()
+  const t = useTranslation()
+  const file = language === "pt" ? "/cv/charlesson-mendes-cv-pt.pdf" : "/cv/charlesson-mendes-resume-en.pdf"
 
   const ariaLabel = {
     pt: {
@@ -145,5 +137,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

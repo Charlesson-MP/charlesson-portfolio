@@ -8,8 +8,8 @@
 
 import { useState } from "react"
 import { processSteps } from "@/data/process"
-import { MobileStepCard } from "../ui/MobileStepCard"
-import { DesktopStepCard } from "../ui/DesktopStepCard"
+import { MobileStepCard } from "@/components/ui/MobileStepCard"
+import { DesktopStepCard } from "@/components/ui/DesktopStepCard"
 import { useTranslation } from "@/hooks/use-translation"
 
 export function HowIWork() {

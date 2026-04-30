@@ -6,11 +6,11 @@
  * while "blue" parts follow the theme's primary color.
  */
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 type LogoProps = {
-  className?: string;
-};
+  className?: string
+}
 
 export function Logo({ className }: LogoProps) {
   return (
@@ -101,5 +101,5 @@ export function Logo({ className }: LogoProps) {
         fill="currentColor"
       />
     </svg>
-  );
+  )
 }

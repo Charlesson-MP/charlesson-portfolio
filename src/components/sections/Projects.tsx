@@ -12,13 +12,13 @@
  */
 "use client"
 
-import Link from "next/link";
-import { ExternalLink } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
-import { Badge } from "../ui/Badge";
-import { projects } from "@/data/projects";
-import { Button } from "../ui/Button";
-import Image from "next/image";
+import Link from "next/link"
+import { ExternalLink } from "lucide-react"
+import { FaGithub } from "react-icons/fa"
+import { Badge } from "@/components/ui/Badge"
+import { projects } from "@/data/projects"
+import { Button } from "@/components/ui/Button"
+import Image from "next/image"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card"
 import { useTranslation } from "@/hooks/use-translation"
 import { useLanguage } from "@/hooks/use-language"

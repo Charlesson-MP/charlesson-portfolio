@@ -33,8 +33,8 @@
  * - This file should remain purely declarative (no logic).
  */
 
-import { ProcessStep } from "@/types/process";
-import { Code2, LayoutPanelLeft, Search, Wrench, Gauge, GitBranch } from 'lucide-react';
+import { ProcessStep } from "@/types/process"
+import { Code2, LayoutPanelLeft, Search, Wrench, Gauge, GitBranch } from 'lucide-react'
 
 
 export const processSteps: ProcessStep[] = [

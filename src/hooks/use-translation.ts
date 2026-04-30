@@ -13,12 +13,12 @@
  * Must be used within a `<LanguageProvider>`.
  */
 
-"use client";
+"use client"
 
-import { locales } from "@/locales";
-import { useLanguage } from "./use-language";
+import { locales } from "@/locales"
+import { useLanguage } from "./use-language"
 
 export function useTranslation() {
-  const { language } = useLanguage();
-  return locales[language];
+  const { language } = useLanguage()
+  return locales[language]
 }

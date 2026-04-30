@@ -5,105 +5,105 @@
  * Includes focus trap, scroll lock, and language toggle.
  */
 
-"use client";
+"use client"
 
-import { useEffect, useRef, useCallback } from "react";
-import Link from "next/link";
-import { X, Globe } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { useLanguage } from "@/hooks/use-language";
-import { useTranslation } from "@/hooks/use-translation";
+import { useEffect, useRef, useCallback } from "react"
+import Link from "next/link"
+import { X, Globe } from "lucide-react"
+import { Button } from "@/components/ui/Button"
+import { useLanguage } from "@/hooks/use-language"
+import { useTranslation } from "@/hooks/use-translation"
 
-type Props = {
-  isOpen: boolean;
-  onClose: () => void;
-  links: { href: string; label: string }[];
-  activeSection?: string;
-};
+type MobileDrawerProps = {
+  isOpen: boolean
+  onClose: () => void
+  links: { href: string; label: string }[]
+  activeSection?: string
+}
 
 export function MobileDrawer({
   isOpen,
   onClose,
   links,
   activeSection,
-}: Props) {
-  const drawerRef = useRef<HTMLDivElement>(null);
-  const previousFocusRef = useRef<HTMLElement | null>(null);
+}: MobileDrawerProps) {
+  const drawerRef = useRef<HTMLDivElement>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
 
-  const { language, toggleLanguage } = useLanguage();
-  const t = useTranslation();
+  const { language, toggleLanguage } = useLanguage()
+  const t = useTranslation()
 
   // 1. Helper to extract focusable elements cleanly and properly typed
   const getFocusableElements = useCallback(() => {
-    if (!drawerRef.current) return [];
+    if (!drawerRef.current) return []
     return Array.from(
       drawerRef.current.querySelectorAll<HTMLElement>(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       )
-    );
-  }, [drawerRef]);
+    )
+  }, [drawerRef])
 
   // 2. Consolidated lifecycle hook for managing the drawer state, focus logic, and keyboard events
   useEffect(() => {
     if (isOpen) {
       // Focus management: Save the element that triggered the drawer to restore focus upon closing
-      previousFocusRef.current = document.activeElement as HTMLElement;
+      previousFocusRef.current = document.activeElement as HTMLElement
 
-      const focusableElements = getFocusableElements();
+      const focusableElements = getFocusableElements()
       if (focusableElements.length > 0) {
         // 3. requestAnimationFrame usage:
         // By deferring the focus call to immediately after the browser paints, 
         // we guarantee that the newly visible DOM elements are fully ready to accept focus.
         requestAnimationFrame(() => {
-          focusableElements[0].focus();
-        });
+          focusableElements[0].focus()
+        })
       }
 
       // Prevent scrolling on the document body
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"
 
       // Consolidate global keydown events to handle both Escape and Tab navigation in a single listener
       const handleKeyDown = (e: KeyboardEvent) => {
         // Close drawer on Escape
-        if (e.key === "Escape") return onClose();
+        if (e.key === "Escape") return onClose()
 
         // Focus trap logic: cycle through elements inside the drawer on Tab
         if (e.key === "Tab") {
-          const elements = getFocusableElements();
-          if (elements.length === 0) return;
+          const elements = getFocusableElements()
+          if (elements.length === 0) return
 
-          const firstElement = elements[0];
-          const lastElement = elements[elements.length - 1];
+          const firstElement = elements[0]
+          const lastElement = elements[elements.length - 1]
 
           if (e.shiftKey) {
             // Shift + Tab
             if (document.activeElement === firstElement) {
-              e.preventDefault();
-              lastElement.focus();
+              e.preventDefault()
+              lastElement.focus()
             }
           } else {
             // Tab
             if (document.activeElement === lastElement) {
-              e.preventDefault();
-              firstElement.focus();
+              e.preventDefault()
+              firstElement.focus()
             }
           }
         }
-      };
+      }
 
-      document.addEventListener("keydown", handleKeyDown);
+      document.addEventListener("keydown", handleKeyDown)
 
       return () => {
-        document.removeEventListener("keydown", handleKeyDown);
-        document.body.style.overflow = "";
+        document.removeEventListener("keydown", handleKeyDown)
+        document.body.style.overflow = ""
 
         // Restore focus to the original triggering element when the drawer closes
         if (previousFocusRef.current) {
-          previousFocusRef.current.focus();
+          previousFocusRef.current.focus()
         }
-      };
+      }
     }
-  }, [isOpen, onClose, getFocusableElements]);
+  }, [isOpen, onClose, getFocusableElements])
 
   return (
     <>
@@ -152,9 +152,9 @@ export function MobileDrawer({
         <nav className="flex-1 overflow-y-scroll p-6">
           <ul className="flex flex-col gap-1">
             {links.map((link) => {
-              const id = link.href.split("#")[1];
-              const isActive = activeSection === id;
-              const isHero = activeSection === "inicio";
+              const id = link.href.split("#")[1]
+              const isActive = activeSection === id
+              const isHero = activeSection === "inicio"
               return (
                 <li key={link.href}>
                   <Link
@@ -175,7 +175,7 @@ export function MobileDrawer({
                     {link.label}
                   </Link>
                 </li>
-              );
+              )
             })}
           </ul>
 
@@ -197,5 +197,5 @@ export function MobileDrawer({
         </nav>
       </div>
     </>
-  );
+  )
 }

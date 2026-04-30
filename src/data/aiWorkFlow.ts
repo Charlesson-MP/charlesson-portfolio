@@ -16,8 +16,8 @@
  * - Easy to extend with tools, examples, or external references
  */
 
-import { Bot, Bug, BookOpen } from "lucide-react";
-import { AiWorkFlow } from "../types/aiWorkFlow";
+import { Bot, Bug, BookOpen } from "lucide-react"
+import { AiWorkFlow } from "@/types/aiWorkFlow"
 
 export const aiUseCases: AiWorkFlow[] = [
   {
@@ -53,4 +53,4 @@ export const aiUseCases: AiWorkFlow[] = [
       en: "I accelerate my learning of new technologies and concepts using AI as a support tool.",
     },
   },
-];
+]

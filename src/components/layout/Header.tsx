@@ -5,30 +5,30 @@
  * language switching, and scroll spy-based active section tracking.
  */
 
-"use client";
+"use client"
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react"
 
-import Link from "next/link";
-import { Menu, Moon, Sun, Globe } from "lucide-react";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/Button";
-import { Logo } from "@/components/ui/Logo";
-import { useLanguage } from "@/hooks/use-language";
-import { useTranslation } from "@/hooks/use-translation";
-import { MobileDrawer } from "@/components/layout/MobileDrawer";
-import { usePathname } from "next/navigation";
+import Link from "next/link"
+import { Menu, Moon, Sun, Globe } from "lucide-react"
+import { useTheme } from "next-themes"
+import { Button } from "@/components/ui/Button"
+import { Logo } from "@/components/ui/Logo"
+import { useLanguage } from "@/hooks/use-language"
+import { useTranslation } from "@/hooks/use-translation"
+import { MobileDrawer } from "@/components/layout/MobileDrawer"
+import { usePathname } from "next/navigation"
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("");
-  const { resolvedTheme, setTheme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const [activeSection, setActiveSection] = useState<string>("")
+  const { resolvedTheme, setTheme } = useTheme()
 
-  const { language, toggleLanguage } = useLanguage();
-  const t = useTranslation();
-  const pathname = usePathname();
+  const { language, toggleLanguage } = useLanguage()
+  const t = useTranslation()
+  const pathname = usePathname()
 
   const navLinks = useMemo(
     () => [
@@ -39,59 +39,59 @@ export function Header() {
       { href: "/#contato", label: t.header.contact },
     ],
     [t],
-  );
+  )
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+  }, [])
 
-  const currentTheme = mounted ? resolvedTheme : "light";
+  const currentTheme = mounted ? resolvedTheme : "light"
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useEffect(() => {
-    if (isMenuOpen) return;
+    if (isMenuOpen) return
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const id = entry.target.id;
-            setActiveSection(id);
-            window.history.replaceState(null, "", `/#${id}`);
+            const id = entry.target.id
+            setActiveSection(id)
+            window.history.replaceState(null, "", `/#${id}`)
           }
-        });
+        })
       },
       { rootMargin: "-50% 0px -50% 0px" },
-    );
+    )
 
-    const hero = document.getElementById("inicio");
-    if (hero) observer.observe(hero);
+    const hero = document.getElementById("inicio")
+    if (hero) observer.observe(hero)
 
     navLinks.forEach((link) => {
-      const id = link.href.split("#")[1];
+      const id = link.href.split("#")[1]
       if (id) {
-        const element = document.getElementById(id);
+        const element = document.getElementById(id)
         if (element) {
-          observer.observe(element);
+          observer.observe(element)
         }
       }
-    });
+    })
 
     return () => {
-      observer.disconnect();
-    };
-  }, [isMenuOpen, navLinks, pathname]);
+      observer.disconnect()
+    }
+  }, [isMenuOpen, navLinks, pathname])
 
   const toggleTheme = () => {
-    setTheme(currentTheme === "dark" ? "light" : "dark");
-  };
+    setTheme(currentTheme === "dark" ? "light" : "dark")
+  }
 
   return (
     <>
@@ -115,7 +115,7 @@ export function Header() {
             {/* Desktop Navigation */}
             <ul className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.split("#")[1];
+                const isActive = activeSection === link.href.split("#")[1]
                 return (
                   <li key={link.href}>
                     <Link
@@ -129,7 +129,7 @@ export function Header() {
                       {link.label}
                     </Link>
                   </li>
-                );
+                )
               })}
             </ul>
 
@@ -191,5 +191,5 @@ export function Header() {
         activeSection={activeSection}
       />
     </>
-  );
+  )
 }

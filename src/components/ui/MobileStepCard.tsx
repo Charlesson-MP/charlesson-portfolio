@@ -6,20 +6,22 @@
  * Handles expand/collapse interaction and renders step content (icon, title, description).
  */
 
-import { processSteps } from "@/data/process";
-import { cn } from "@/lib/utils";
-import { ChevronDown } from "lucide-react";
-import { useLanguage } from "@/hooks/use-language";
+import { processSteps } from "@/data/process"
+import { cn } from "@/lib/utils"
+import { ChevronDown } from "lucide-react"
+import { useLanguage } from "@/hooks/use-language"
 
-function MobileStepCard({ 
-  step,
-  isOpen,
-  onToggle
-}: { 
+type MobileStepCardProps = {
   step: typeof processSteps[0]
   isOpen: boolean
   onToggle: () => void
-}) {
+}
+
+export function MobileStepCard({ 
+  step,
+  isOpen,
+  onToggle
+}: MobileStepCardProps) {
   
   const { language } = useLanguage()
 
@@ -70,5 +72,3 @@ function MobileStepCard({
     </div>
   )
 }
-
-export { MobileStepCard }

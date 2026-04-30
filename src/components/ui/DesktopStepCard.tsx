@@ -6,19 +6,21 @@
  * Renders step content in an alternating zig-zag timeline format.
  */
 
-import { processSteps } from "@/data/process";
-import { cn } from "@/lib/utils";
-import { useLanguage } from "@/hooks/use-language";
+import { processSteps } from "@/data/process"
+import { cn } from "@/lib/utils"
+import { useLanguage } from "@/hooks/use-language"
 
-function DesktopStepCard({ 
-  step, 
-  isLast,
-  isEven
-}: { 
+type DesktopStepCardProps = {
   step: typeof processSteps[0]
   isLast: boolean
   isEven: boolean
-}) {
+}
+
+export function DesktopStepCard({ 
+  step, 
+  isLast,
+  isEven
+}: DesktopStepCardProps) {
 
   const { language } = useLanguage()
 
@@ -69,5 +71,3 @@ function DesktopStepCard({
     </div>
   )
 }
-
-export { DesktopStepCard }

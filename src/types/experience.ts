@@ -16,11 +16,11 @@
  * - Supports expansion (e.g., links, tags, highlights) without breaking structure
  */
 
-import { LocalizedString } from "./common";
+import { LocalizedString } from "./common"
 
 export type Experience = {
-  title: LocalizedString;
-  company: string;
-  period: string;
-  description: LocalizedString;
-};
+  title: LocalizedString
+  company: string
+  period: string
+  description: LocalizedString
+}
