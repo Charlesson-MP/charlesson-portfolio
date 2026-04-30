@@ -15,10 +15,6 @@ import { useLanguage } from "@/hooks/use-language"
 import { Logo } from "@/components/ui/Logo"
 
 export function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
-
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault()
     const element = document.getElementById(sectionId)
