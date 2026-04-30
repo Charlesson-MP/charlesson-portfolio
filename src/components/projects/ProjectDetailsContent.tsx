@@ -17,6 +17,7 @@ import {
   FolderTree,
   Layers,
   Star,
+  Link,
 } from "lucide-react"
 
 import type { ProjectDetails } from "@/types/projects"
@@ -156,13 +157,13 @@ export function ProjectDetailsContent({ project }: ProjectDetailsContentProps) {
 
             {/* Bottom Navigation */}
         <div className="flex justify-center py-12 md:py-16">
-          <a
+          <Link
             href="/#projetos"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
           >
             <Zap className="w-4 h-4 text-primary" />
             <span>{t.projects.CTATitleProjectDetails}</span>
-          </a>
+          </Link>
         </div>
           </div>
         </div>
