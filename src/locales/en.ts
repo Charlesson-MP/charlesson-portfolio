@@ -91,7 +91,6 @@ export const en = {
     navigationTitle: "Navigation",
     linksTitle: "Connect",
     btnDownloadCVLabel: "Download CV",
-    btnBackToTopLabel: "Back to top",
     copyMessage: "Built with Next.js & Tailwind"
   },
 }

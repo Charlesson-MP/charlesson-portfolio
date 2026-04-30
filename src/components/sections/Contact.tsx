@@ -99,7 +99,7 @@ export function Contact() {
                 <FaWhatsapp className="h-5 w-5" />
               </div>
               <div className="text-left min-w-0">
-                <p className="text-xs text-muted-foreground whitespace-nowrap">Contato</p>
+                <p className="text-xs text-muted-foreground whitespace-nowrap">{t.contact.title}</p>
                 <p className="text-foreground font-medium text-sm truncate">WhatsApp</p>
               </div>
             </a>

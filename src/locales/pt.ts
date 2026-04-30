@@ -91,7 +91,6 @@ export const pt = {
     navigationTitle: "Navegação",
     linksTitle: "Conectar",
     btnDownloadCVLabel: "Baixar CV",
-    btnBackToTopLabel: "Voltar ao topo",
     copyMessage: "Desenvolvido com Next.js & Tailwind"
   },
 }
