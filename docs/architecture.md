@@ -25,7 +25,6 @@ src/
 │       ├── TechStack.tsx
 │       ├── SectionBlock.tsx
 │       ├── FeatureList.tsx
-│       ├── CopyCommandBlock.tsx
 │       └── ProjectStructureBlock.tsx
 │
 ├── data/                   # Static data sources

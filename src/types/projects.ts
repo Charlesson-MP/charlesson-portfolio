@@ -28,7 +28,6 @@
  * - `ProjectDetails`: Full case study data
  * - `TechItem`: Technology with icon key and description
  * - `Feature`: Feature with title and description
- * - `Command`: Terminal command for setup instructions
  *
  * Usage:
  * - Listing components use `Project`
@@ -82,13 +81,6 @@ export type Feature = {
   description: LocalizedString
 }
 
-/**
- * A terminal command for the "How to Run" section.
- */
-export type Command = {
-  label: LocalizedString
-  command: string
-}
 
 /**
  * Full case study data for the project detail page.
@@ -114,5 +106,4 @@ export type ProjectDetails = {
   learnings: LocalizedStringList
   improvements: LocalizedStringList
   projectStructure: string
-  commands: Command[]
 }

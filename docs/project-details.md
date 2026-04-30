@@ -40,10 +40,7 @@ Both share a `slug` field for linkage. This separation keeps each file focused a
 | `SectionBlock`         | Server   | Reusable section wrapper (×9)          |
 | `TechStack`            | Server   | Tech cards with icons                  |
 | `FeatureList`          | Server   | Numbered feature cards                 |
-| `CopyCommandBlock`     | Client   | Terminal block with copy-to-clipboard  |
 | `ProjectStructureBlock`| Server   | File tree display                      |
-
-Only 2 components are Client Components (Gallery and CopyCommand), minimizing client-side JavaScript.
 
 ## Adding a New Project
 

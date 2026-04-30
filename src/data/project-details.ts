@@ -37,7 +37,6 @@
  * Media & Extras:
  * - `images`: Project gallery (stored in `/public/projects/[slug]/`)
  * - `projectStructure`: File/folder structure (for technical transparency)
- * - `commands`: Setup instructions for running the project locally
  *
  * Icons:
  * - Tech icons are stored as string identifiers.
@@ -233,12 +232,6 @@ export const projectDetails: ProjectDetails[] = [
       │   └── globals.css
       ├── App.jsx
       └── main.jsx`,
-    commands: [
-      { label: { pt: "Clone o repositório", en: "Clone the repository" }, command: "git clone https://github.com/Charlesson-MP/mile-artesanatos.git" },
-      { label: { pt: "Navegue até o projeto", en: "Navigate to project" }, command: "cd mile-artesanatos" },
-      { label: { pt: "Instale as dependências", en: "Install dependencies" }, command: "npm install" },
-      { label: { pt: "Inicie o servidor de desenvolvimento", en: "Start development server" }, command: "npm run dev" },
-    ],
   },
   {
     slug: "mortugaba-tech",
@@ -374,12 +367,6 @@ export const projectDetails: ProjectDetails[] = [
     │   └── utils.ts
     └── types/
         └── index.ts`,
-    commands: [
-      { label: { pt: "Clone o repositório", en: "Clone the repository" }, command: "git clone https://github.com/Charlesson-MP/mortugaba-tech.git" },
-      { label: { pt: "Navegue até o projeto", en: "Navigate to project" }, command: "cd mortugaba-tech" },
-      { label: { pt: "Instale as dependências", en: "Install dependencies" }, command: "npm install" },
-      { label: { pt: "Inicie o servidor de desenvolvimento", en: "Start development server" }, command: "npm run dev" },
-    ],
   },
   {
     slug: "los-burgers",
@@ -515,12 +502,6 @@ export const projectDetails: ProjectDetails[] = [
       │       └── main.css
       ├── App.vue
       └── main.js`,
-    commands: [
-      { label: { pt: "Clone o repositório", en: "Clone the repository" }, command: "git clone https://github.com/Charlesson-MP/los-burgers.git" },
-      { label: { pt: "Navegue até o projeto", en: "Navigate to project" }, command: "cd los-burgers" },
-      { label: { pt: "Instale as dependências", en: "Install dependencies" }, command: "npm install" },
-      { label: { pt: "Inicie o servidor de desenvolvimento", en: "Start development server" }, command: "npm run dev" },
-    ],
   },
   {
     slug: "wiki-movies",
@@ -684,11 +665,6 @@ export const projectDetails: ProjectDetails[] = [
 │   └── images/
 ├── index.html
 └── README.md`,
-    commands: [
-      { label: { pt: "Clone o repositório", en: "Clone the repository" }, command: "git clone https://github.com/Charlesson-MP/wiki-movies.git" },
-      { label: { pt: "Navegar até o projeto", en: "Navigate to project" }, command: "cd wiki-movies" },
-      { label: { pt: "Abrir no navegador", en: "Open in browser" }, command: "open index.html" },
-    ],
   },
 ]
 

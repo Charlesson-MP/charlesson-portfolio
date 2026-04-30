@@ -61,7 +61,6 @@ export const en = {
       learnings: "Learnings",
       improvements: "Future improvements",
       projectStructure: "Project Structure",
-      howToRun: "How to run",
     },
   },
   howIWork: {

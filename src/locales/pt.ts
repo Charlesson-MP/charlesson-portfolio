@@ -61,7 +61,6 @@ export const pt = {
       learnings: "Aprendizados",
       improvements: "Melhorias futuras",
       projectStructure: "Estrutura do projeto",
-      howToRun: "Como executar",
     },
   },
   howIWork: {
