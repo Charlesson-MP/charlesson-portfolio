@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "Portfólio de desenvolvimento frontend com foco em performance, UX e aplicações modernas.",
   icons: {
     icon: [
-      { url: "/favicon.svg?v=1", type: "image/svg+xml" }
+      { url: "/favicon.svg?v=3", type: "image/svg+xml" }
     ]
   }
 };
