@@ -21,7 +21,7 @@ type ProjectTOCProps = {
 }
 
 export function ProjectTOC({ sections }: ProjectTOCProps) {
-  const [activeSection, setActiveSection] = useState<string>("")
+  const [activeSection, setActiveSection] = useState<string>(() => sections[0]?.id ?? "")
 
   useEffect(() => {
     // If no sections, do nothing
@@ -59,9 +59,7 @@ export function ProjectTOC({ sections }: ProjectTOCProps) {
     })
 
     // Set initial active section to the first one if none is set
-    if (!activeSection && sections.length > 0) {
-      setActiveSection(sections[0].id)
-    }
+    // This is now handled by the lazy initializer in useState
 
     return () => observer.disconnect()
   }, [sections, activeSection])

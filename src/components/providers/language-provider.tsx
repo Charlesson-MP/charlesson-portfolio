@@ -29,15 +29,13 @@ export type LanguageContextValue = {
 export const LanguageContext = createContext<LanguageContextValue | null>(null)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(DEFAULT_LANGUAGE)
-
-  // Hydration-safe: read localStorage only after mount
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    if (stored === "pt" || stored === "en") {
-      setLanguageState(stored)
+  const [language, setLanguageState] = useState<Language>(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      return stored === "pt" || stored === "en" ? stored : "pt"
     }
-  }, [])
+    return "pt"
+  })
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang)
