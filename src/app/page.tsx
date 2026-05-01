@@ -19,6 +19,7 @@ import { Experience } from "@/components/sections/Experience"
 import { HowIWork } from "@/components/sections/HowIWork"
 import { AIWorkflow } from "@/components/sections/AIWorkflow"
 import { Contact } from "@/components/sections/Contact"
+import { MyJourney } from "@/components/sections/MyJourney"
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <MyJourney />
       <Experience />
       <HowIWork />
       <AIWorkflow />

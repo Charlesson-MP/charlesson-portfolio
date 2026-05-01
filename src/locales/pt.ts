@@ -72,6 +72,11 @@ export const pt = {
     title: "Experiência",
     subtitle: "Trajetória profissional",
   },
+  myJourney: {
+    title: "Minha jornada",
+    subtitle: "De onde vim, para onde pretendo ir",
+    description: "Ninguém chega onde está por acaso. Por trás de cada escolha, houve um desvio que eu não planejei — e que mudou tudo. Esta é a minha história até agora. O próximo capítulo? Ainda está sendo escrito.", 
+  },
   iaWorkFlow: {
     title: "Produtividade",
     subtitle: "IA no Meu Workflow",

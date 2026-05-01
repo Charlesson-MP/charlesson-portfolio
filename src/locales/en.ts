@@ -72,6 +72,11 @@ export const en = {
     title: "Experience",
     subtitle: "Professional background",
   },
+  myJourney: {
+    title: "My journey",
+    subtitle: "Where I came from, where I'm going",
+    description: "Nobody gets where they are by chance. Behind every choice, there was a detour I didn't plan — and that changed everything. This is my story so far. The next chapter? Still being written.",
+  },
   iaWorkFlow: {
     title: "Productivity",
     subtitle: "AI in My Workflow",
